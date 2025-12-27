@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  // У Prisma 7 url береться з prisma.config.ts
+}
+
+model GayatriCart {
+  id         Int    @id @default(autoincrement())
+  image      String
+  name       String
+  mililitres Int
+  count      Int
+  price      Float
+}

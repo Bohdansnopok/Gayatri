@@ -1,33 +1,18 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  letter-spacing: 1.1;
+  color: #2B2623;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
 }
 
 a {
@@ -35,8 +20,86 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+.defaultButton {
+  background-color: transparent;
+  border: 1px solid #2B2623;
+  border-radius: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.defaultButton:hover {
+background-color: lightgray;
+}
+
+.face {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+    padding: 50px 0;
+
+    h1 {
+        text-align: center;
+    }
+
+    .face__cards {
+        margin: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .face__card {
+        background-color: #FFFDF9;
+        padding: 15px 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .face__card__price {
+            color: #E6D3C5;
+            font-size: 25px;
+        }
+    }
+
+    .face__card__image {
+        width: 100%;
+        height: auto;
+    }
+
+    .face__card__button {
+        margin: 0 auto;
+        padding-left: 40px;
+        padding-right: 40px;
+        background-color: darksalmon;
+        transition: background-color 0.3s;
+    }
+
+    .face__card__button:hover {
+        background-color: pink;
+    }
 }

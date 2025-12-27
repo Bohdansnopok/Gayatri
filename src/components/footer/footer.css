@@ -1,0 +1,59 @@
+.footer {
+  background-color: #373b45;
+  padding: 50px 0;
+  color: #fafafa;
+
+  .container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .footer__left {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    letter-spacing: 1.5;
+    font-weight: 900;
+    gap: 20px;
+  }
+
+  .footer__left__logo {
+    font-size: 40px;
+  }
+
+  .footer__left__socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    a {
+      color: white;
+    }
+  }
+
+  .footer__right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: right;
+
+    .footer__right__reqQuestion {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-end;
+      color: white;
+    }
+
+    .footer__right__reqQuestion:hover {
+      text-decoration: dashed;
+    }
+
+    .footer__right__navs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
