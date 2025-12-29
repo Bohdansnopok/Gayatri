@@ -168,6 +168,7 @@ export default function CartModal() {
                       "Некоректний номер телефону. Формат: +380XXXXXXXXX",
                   },
                 })}
+                maxLength={12}
                 placeholder="+38 (000) 000-00-00"
                 value={phoneValue || "+380"}
                 onChange={(e) => {
