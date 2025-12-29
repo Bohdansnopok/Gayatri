@@ -5,7 +5,7 @@ import intensiveHydration from "../../../public/intensiveGydrotation.jpg";
 import { useCartStore } from "@/store/cartStore";
 
 export interface Product {
-  id: number;
+  id: string;
   image: string;
   name: string;
   price: string;

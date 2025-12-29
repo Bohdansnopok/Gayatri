@@ -4,7 +4,7 @@ import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
 
 export interface Product {
-  id: number;
+  id: string;
   image: string;
   name: string;
   price: string;

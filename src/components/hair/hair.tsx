@@ -5,7 +5,7 @@ import hydrapertide from "../../../public/hydrapeptide.jpg";
 import { useCartStore } from "@/store/cartStore";
 
 export interface Product {
-  id: number;
+  id: string;
   image: string;
   name: string;
   price: string;
