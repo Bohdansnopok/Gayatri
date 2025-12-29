@@ -13,7 +13,7 @@ type Product = {
 type CartStore = {
   cart: Product[];
   addToCart: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
+  removeFromCart: (productId: string) => void;
   clearCart: () => void;
   _hasHydrated: boolean; 
   setHasHydrated: (state: boolean) => void;
