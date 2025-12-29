@@ -12,7 +12,7 @@ export default function EssentialOils() {
             рослин, які зберігають їхній аромат, смак і природні корисні <br />
             властивості <br />
           </div>
-          <Link className="defaultButton" href="instagram.com">Докладніше</Link>
+          <Link className="defaultButton" href="">Докладніше</Link>
         </div>
       </div>
     </section>

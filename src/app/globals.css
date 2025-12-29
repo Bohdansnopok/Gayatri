@@ -1,7 +1,7 @@
 body {
   font-size: 20px;
   letter-spacing: 1.1;
-  color: #2B2623;
+  color: #2b2623;
 }
 
 * {
@@ -13,6 +13,13 @@ body {
 .container {
   max-width: 1160px;
   margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 a {
@@ -29,9 +36,15 @@ h2 {
   font-size: 25px;
 }
 
+@media (max-width: 760px) {
+  h2 {
+    font-size: 15px;
+  }
+}
+
 .defaultButton {
   background-color: transparent;
-  border: 1px solid #2B2623;
+  border: 1px solid #2b2623;
   border-radius: 20px;
   font-size: 20px;
   text-transform: uppercase;
@@ -41,65 +54,88 @@ h2 {
 }
 
 .defaultButton:hover {
-background-color: lightgray;
+  background-color: lightgray;
+}
+
+@media (max-width: 760px) {
+  .defaultButton {
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px 10px;
+  }
 }
 
 .face {
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  padding: 50px 0;
+
+  h1 {
+    text-align: center;
+  }
+
+  .face__cards {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 50px;
+  }
+
+  .face__card {
+    background-color: #fffdf9;
+    padding: 15px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .face__card__price {
+      color: #e6d3c5;
+      font-size: 25px;
+    }
+  }
+
+  .face__card__image {
+    width: 100%;
+    height: auto;
+  }
+
+  .face__card__button {
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: darksalmon;
+    transition: background-color 0.3s;
+  }
+
+  .face__card__button:hover {
+    background-color: pink;
+  }
 }
 
-    padding: 50px 0;
-
-    h1 {
-        text-align: center;
-    }
-
+@media (max-width: 500px) {
+  .face {
     .face__cards {
-        margin: 50px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .face__card {
+        width: 80%;
         gap: 50px;
+      }
     }
-
-    .face__card {
-        background-color: #FFFDF9;
-        padding: 15px 30px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 100px;
-        
-        section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            width: 100%;
-        }
-
-        .face__card__price {
-            color: #E6D3C5;
-            font-size: 25px;
-        }
-    }
-
-    .face__card__image {
-        width: 100%;
-        height: auto;
-    }
-
-    .face__card__button {
-        margin: 0 auto;
-        padding-left: 40px;
-        padding-right: 40px;
-        background-color: darksalmon;
-        transition: background-color 0.3s;
-    }
-
-    .face__card__button:hover {
-        background-color: pink;
-    }
+  }
 }

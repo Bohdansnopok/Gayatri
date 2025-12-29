@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import './counter.css'
 
 export default function Counter({ initialValue = 1 }) {
   const [count, setCount] = useState(initialValue);
@@ -12,10 +13,6 @@ export default function Counter({ initialValue = 1 }) {
         onChange={(e) => setCount(Number(e.target.value))}
         className="counter__input"
       />
-      <div className="counter__controls">
-        <button onClick={() => setCount(count + 1)} className="counter__btn">▲</button>
-        <button onClick={() => setCount(count > 1 ? count - 1 : 1)} className="counter__btn">▼</button>
-      </div>
     </div>
   );
 }

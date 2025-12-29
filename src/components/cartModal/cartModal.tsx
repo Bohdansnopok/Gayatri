@@ -1,52 +1,173 @@
+"use client";
+
 import Image from "next/image";
 import cleansignGel from "../../../public/cleansingGel.jpg";
 import Counter from "../counter/counter";
+import "./cartModal.css";
+import { FaTimes, FaShoppingCart } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { useCartStore } from "@/store/cartStore";
+
+export interface Product {
+  id: string;
+  image: string;
+  mililitres: number;
+  name: string;
+  price: number;
+}
 
 export default function CartModal() {
-  return (
-    <section className="cartModal">
-      <div className="container">
-        <div className="cartModal__title">Товари</div>
-        <div className="cartModal__list">
-          <div className="cartModal__list__product">
-            <Image
-              src={cleansignGel}
-              alt=""
-              height={46}
-              width={46}
-              className="cartModal__list__product__image"
-            />
-            <div className="cartModal__list__product__info">
-              <div className="cartModal__list__product__name">
-                Ефірна олія Базиліка (Basil) Young Living
-              </div>
-              <div className="cartModal__list__product__mililitres">15 мл</div>
-            </div>
+  const paymentMethods = [
+    { id: "prepaid", label: "Передплата" },
+    { id: "cod", label: "Наложений платіж" },
+  ];
 
-            <div className="cartModal__list__product__counter">
-              {/* <Counter initialValue={product.quantity} /> */}
-            </div>
-            <div className="cartModal__list__product__price">1800</div>
-            <button className="cartModal__list__product__delete">
-              <svg
-                width="14"
-                height="18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10 2h3.6c.2 0 .4.2.4.4v1.2c0 .2-.2.4-.4.4H.4C.2 4 0 3.9 0 3.6V2.4c0-.2.2-.4.4-.3h3.7V2L4.9.3c.1-.2.2-.3.4-.3h3.5c.1 0 .3.1.4.2l.8 1.7V2zM1.8 16.1c.1 1 1 1.9 2 1.9h6.3c1.1 0 1.9-.8 2-1.9l1-11.1H1l.8 11.1zM12 6l-.8 10.1c0 .5-.5.9-1 .9H3.8c-.5 0-1-.4-1-.9L2 6h10zM5 8.1h1v6H5v-6zm4 0H8v6h1v-6z"
-                  fill="#9199AB"
-                ></path>
-              </svg>
+  const [selected, setSelected] = useState(paymentMethods[0].id);
+
+  const handleSubmit = () => {
+    alert(`Ви обрали: ${selected}`);
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
+  const { cart, removeFromCart, clearCart } = useCartStore();
+
+  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)} className="cartOpenButton">
+        <FaShoppingCart size={20} />
+        <span>{cart.length}</span>
+      </button>
+      {isOpen && (
+        <section className="cartModal-overlay">
+          <section className="cartModal">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="cartModal__close"
+            >
+              <FaTimes size={20} />
             </button>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div className="cartModal__title">Товари</div>
+            <div className="cartModal__list">
+              {cart.length > 0 ? (
+                cart.map((item) => (
+                  <div key={item.id} className="cartModal__list__product">
+                    <div className="cartModal__list__product__wrapper">
+                      <Image
+                        src={item.image || "/placeholder.jpg"}
+                        alt={item.name}
+                        height={46}
+                        width={46}
+                        className="cartModal__list__product__image"
+                      />
+                      <div className="cartModal__list__product__info">
+                        <div className="cartModal__list__product__name">
+                          {item.name}
+                        </div>
+                        <div className="cartModal__list__product__mililitres">
+                          {item.mililitres}
+                        </div>
+                        <div className="cartModal__list__product__price__mobileWrapper">
+                          <Counter />
+                          <div className="cartModal__list__product__price">
+                            {item.price} грн
+                          </div>
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="cartModal__list__product__delete"
+                          >
+                            <FaTimes />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="cartModal__list__product__price__deckstopWrapper">
+                        <Counter />
+
+                        <div className="cartModal__list__product__price">
+                          {item.price} грн
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="cartModal__list__product__delete"
+                        >
+                          <FaTimes />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>Кошик порожній</p>
+              )}
+            </div>
+            <div className="cartModal__summary">Загальна сума: {totalPrice}</div>
+            <div className="cartModal__title">Зробити замовлення</div>
+            <form className="cartModal__form">
+              <div className="cartModal__form__title">Прізвище та ім'я *</div>
+              <input type="text" className="cartModal__form__input" />
+              <div className="cartModal__form__title">Телефон *</div>
+              <input
+                type="number"
+                placeholder="+38 (000) 000-00-00
+"
+                className="cartModal__form__input"
+              />
+              <div className="cartModal__form__title">Електронна пошта *</div>
+              <input type="text" className="cartModal__form__input" />
+              <div className="cartModal__form__title">Доставка *</div>
+              <input
+                type="text"
+                placeholder="
+місто, відділенні Нової пошти
+"
+                className="cartModal__form__input"
+              />
+              <div className="cartModal__form__title">Нік в телеграм *</div>
+              <input
+                type="text"
+                placeholder="Для швидшого піддвердження замовлення
+"
+                className="cartModal__form__input"
+              />
+            </form>
+            <div className="cartModal__title cartModal__payment__title">
+              Варіант оплати
+            </div>
+            <div className="cartModal__payment">
+              {paymentMethods.map((method) => (
+                <div
+                  key={method.id}
+                  onClick={() => setSelected(method.id)}
+                  className="cartModal__payment__version"
+                >
+                  <span>{method.label}</span>
+                  {selected === method.id && (
+                    <span className="checkMark">✓</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="cartModal__payment__button__wrapper">
+              <button
+                type="submit"
+                className="defaultButton cartModal__payment__button"
+              >
+                Перейти до оплати
+              </button>
+            </div>
+          </section>
+        </section>
+      )}
+    </div>
   );
 }

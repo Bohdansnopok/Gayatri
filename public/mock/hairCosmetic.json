@@ -1,0 +1,16 @@
+[
+  {
+    "id": "hair-1",
+    "image": "/hydrapeptide.jpg",
+    "name": "hydrapeptide",
+    "price": "200",
+    "category": "hair"
+  },
+  {
+    "id": "hair-2",
+    "image": "/hydrapeptide.jpg",
+    "name": "intensive hydrapeptide",
+    "price": "900",
+    "category": "hair"
+  }
+]

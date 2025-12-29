@@ -1,6 +1,10 @@
 import Image from "next/image";
 import "./footer.css";
-import { FaInstagram, FaTelegramPlane, FaYoutube } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaTelegram,
+  FaYoutube,
+} from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -15,11 +19,11 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaInstagram size={60} />
+              <FaInstagram size={60} className="footer__left__socials__social"/>
             </a>
 
             <a href="https://t.me" target="_blank" rel="noopener noreferrer">
-              <FaTelegramPlane size={60} />
+              <FaTelegram size={60} className="footer__left__socials__social"/>
             </a>
 
             <a
@@ -27,7 +31,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaYoutube size={60} />
+              <FaYoutube size={60} className="footer__left__socials__social"/>
             </a>
           </div>
         </div>

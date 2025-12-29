@@ -1,0 +1,16 @@
+[
+  {
+    "id": "face-1",
+    "image": "/cleansingGel.jpg",
+    "name": "cleansingGel",
+    "price": "1200",
+    "category": "face"
+  },
+  {
+    "id": "face-2",
+    "image": "/cleansingGel.jpg",
+    "name": "cleansingGel",
+    "price": "1200",
+    "category": "face"
+  }
+]
