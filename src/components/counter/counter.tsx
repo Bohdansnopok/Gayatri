@@ -1,7 +1,9 @@
 "use client";
 import "./counter.css";
 
-export default function Counter({ value, onChange }) {
+
+
+export default function Counter({ value, onChange }: { value: number; onChange: (value: number) => void }) {
   return (
     <div className="cartModal__list__product__counter">
       <input
