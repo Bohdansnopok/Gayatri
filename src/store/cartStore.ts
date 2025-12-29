@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
   mililitres: string;
   category: string;
