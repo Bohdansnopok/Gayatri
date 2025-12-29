@@ -35,7 +35,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                     alt={product.name}
                     height={500}
                     width={400}
-                                        priority={Number(product.id) <= 2}
+                    priority={Number(product.id) <= 2}
                   />
                 </div>
                 <h2>{product.name}</h2>
@@ -47,8 +47,8 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                   onClick={() => {
                     addToCart({
                       ...product,
-                      price: Number(product.price), 
-                      mililitres: "50 мл", 
+                      price: Number(product.price),
+                      mililitres: "50 мл",
                     });
                   }}
                   className="face__card__button defaultButton"
