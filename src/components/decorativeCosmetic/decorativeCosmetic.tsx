@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import hydrapertide from "../../../public/hydrapeptide.jpg";
 import { useCartStore } from "@/store/cartStore";
 
 export interface Product {
@@ -25,7 +24,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
       <div className="container">
         <h1>Декоративна косметика</h1>
         <div className="face__cards">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <div key={product.id} className="face__card">
               <section>
                 <div className="face__card__image-container">
@@ -35,7 +34,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                     alt={product.name}
                     height={500}
                     width={400}
-                    priority={Number(product.id) <= 2}
+                    priority={index <= 1}
                   />
                 </div>
                 <h2>{product.name}</h2>
