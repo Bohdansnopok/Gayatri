@@ -36,7 +36,7 @@ export default function Hair({ products = [] }: hairProps) {
                     alt={product.name}
                     height={500}
                     width={400}
-                    priority={product.id <= 2}
+                                        priority={Number(product.id) <= 2}
                   />
                 </div>
                 <h2>{product.name}</h2>

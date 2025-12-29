@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="footer__right">
           <a href="https://t.me" className="footer__right__reqQuestion">
             ПОСТАВИТИ ПИТАННЯ
-            <FaTelegramPlane size={30} />
+            <FaTelegram size={30} />
           </a>
 
           <div className="footer__right__navs">
