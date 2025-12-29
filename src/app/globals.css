@@ -63,6 +63,12 @@ h2 {
   background-color: lightgray;
 }
 
+@media (max-width: 1200px) {
+  .defaultButton:hover {
+    background-color: transparent;
+  }
+}
+
 @media (max-width: 760px) {
   .defaultButton {
     border-radius: 10px;
@@ -93,7 +99,7 @@ h2 {
   }
 
   .face__card {
-    background-color: #FFF9F5;
+    background-color: #fff9f5;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -103,7 +109,7 @@ h2 {
     box-shadow: 0 10px 30px rgba(217, 185, 163);
 
     h2 {
-      color: #2D2926;
+      color: #2d2926;
     }
 
     section {
@@ -114,7 +120,7 @@ h2 {
     }
 
     .face__card__price {
-      color: #B39274;
+      color: #b39274;
       font-size: 25px;
     }
   }
@@ -130,12 +136,19 @@ h2 {
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #E2A79B;
+    background-color: #e2a79b;
     transition: background-color 0.3s;
   }
 
   .face__card__button:hover {
-    background-color: #D18D7F;
+    background-color: #d18d7f;
+  }
+}
+
+@media (max-width: 1200px) {
+  .face__card__button:hover {
+    background-color: #e2a79b;
+    color: #4a4a4a;
   }
 }
 

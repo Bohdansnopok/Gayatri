@@ -19,7 +19,7 @@
     .header__nav {
       background: none;
       border: none;
-      color: #2b2623;
+      color: #4a4a4a;
       cursor: pointer;
       font-size: 16px;
       font-weight: 500;
@@ -28,6 +28,12 @@
 
     .header__nav:hover {
       color: gray;
+    }
+
+    @media (max-width: 1200px) {
+      .header__nav:hover {
+        color: #4a4a4a;
+      }
     }
   }
 }
@@ -59,8 +65,8 @@
 
 @media (max-width: 760px) {
   .header {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
 
     .header__navs {
       display: none;
