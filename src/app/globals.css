@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   font-size: 20px;
   letter-spacing: 1.1;
-  color: #2b2623;
+  color: #4a4a4a;
+    font-family: "Lato", sans-serif;
+
 }
 
 * {
@@ -30,10 +35,12 @@ a {
 h1 {
   font-size: 30px;
   font-weight: 700;
+  font-family: "Cormorant", serif;
 }
 
 h2 {
   font-size: 25px;
+  font-family: "Cormorant", serif;
 }
 
 @media (max-width: 760px) {
@@ -87,12 +94,13 @@ h2 {
   }
 
   .face__card {
-    background-color: #fffdf9;
-    padding: 15px 30px;
+    background-color: #f5e6d3;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 100px;
+    padding-bottom: 50px;
+    border-radius: 50px;
 
     section {
       display: flex;
@@ -102,7 +110,7 @@ h2 {
     }
 
     .face__card__price {
-      color: #e6d3c5;
+      color: #8e8e8e;
       font-size: 25px;
     }
   }
@@ -110,6 +118,8 @@ h2 {
   .face__card__image {
     width: 100%;
     height: auto;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
   }
 
   .face__card__button {

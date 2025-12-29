@@ -37,6 +37,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                     priority={index <= 1}
                   />
                 </div>
+
                 <h2>{product.name}</h2>
               </section>
 
