@@ -1,16 +1,14 @@
 "use client";
-import { useState } from "react";
-import './counter.css'
+import "./counter.css";
 
-export default function Counter({ initialValue = 1 }) {
-  const [count, setCount] = useState(initialValue);
-
+export default function Counter({ value, onChange }) {
   return (
     <div className="cartModal__list__product__counter">
-      <input 
-        type="number" 
-        value={count} 
-        onChange={(e) => setCount(Number(e.target.value))}
+      <input
+        type="number"
+        min={1}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
         className="counter__input"
       />
     </div>

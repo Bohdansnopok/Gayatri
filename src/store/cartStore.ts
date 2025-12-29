@@ -1,21 +1,23 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-type Product = {
+export type Product = {
   id: string;
   name: string;
   mililitres: string;
   category: string;
   price: number;
   image?: string;
+  quantity: number;
 };
 
 type CartStore = {
   cart: Product[];
-  addToCart: (product: Product) => void;
+  addToCart: (product: Omit<Product, "quantity">) => void;
+  updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (productId: string) => void;
   clearCart: () => void;
-  _hasHydrated: boolean; 
+  _hasHydrated: boolean;
   setHasHydrated: (state: boolean) => void;
 };
 
@@ -30,9 +32,30 @@ export const useCartStore = create<CartStore>()(
       addToCart: (product) =>
         set((state) => {
           const exists = state.cart.find((p) => p.id === product.id);
-          if (exists) return state;
-          return { cart: [...state.cart, product] };
+
+          if (exists) {
+            return {
+              cart: state.cart.map((item) =>
+                item.id === product.id
+                  ? { ...item, quantity: item.quantity + 1 }
+                  : item
+              ),
+            };
+          }
+
+          return {
+            cart: [...state.cart, { ...product, quantity: 1 }],
+          };
         }),
+
+      updateQuantity: (id, quantity) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === id
+              ? { ...item, quantity: Math.max(1, quantity) }
+              : item
+          ),
+        })),
 
       removeFromCart: (productId) =>
         set((state) => ({
@@ -42,7 +65,7 @@ export const useCartStore = create<CartStore>()(
       clearCart: () => set({ cart: [] }),
     }),
     {
-      name: "cart-storage", 
+      name: "cart-storage",
       storage: createJSONStorage(() => localStorage),
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);

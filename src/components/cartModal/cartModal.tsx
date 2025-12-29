@@ -39,9 +39,9 @@ export default function CartModal() {
     }
   }, [isOpen]);
 
-  const { cart, removeFromCart, clearCart } = useCartStore();
+  const { cart, removeFromCart, updateQuantity } = useCartStore();
 
-  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div>
@@ -79,9 +79,15 @@ export default function CartModal() {
                           {item.mililitres}
                         </div>
                         <div className="cartModal__list__product__price__mobileWrapper">
-                          <Counter />
+                          <Counter
+                            value={item.quantity}
+                            onChange={(value: number) =>
+                              updateQuantity(item.id, value)
+                            }
+                          />
+
                           <div className="cartModal__list__product__price">
-                            {item.price} грн
+                            {item.price * item.quantity} грн
                           </div>
                           <button
                             onClick={() => removeFromCart(item.id)}
@@ -92,10 +98,13 @@ export default function CartModal() {
                         </div>
                       </div>
                       <div className="cartModal__list__product__price__deckstopWrapper">
-                        <Counter />
+                        <Counter
+                          value={item.quantity}
+                          onChange={(value:number) => updateQuantity(item.id, value)}
+                        />
 
                         <div className="cartModal__list__product__price">
-                          {item.price} грн
+                          {item.price * item.quantity} грн
                         </div>
                         <button
                           onClick={() => removeFromCart(item.id)}
@@ -111,7 +120,9 @@ export default function CartModal() {
                 <p>Кошик порожній</p>
               )}
             </div>
-            <div className="cartModal__summary">Загальна сума: {totalPrice}</div>
+            <div className="cartModal__summary">
+              Загальна сума: {totalPrice} грн
+            </div>
             <div className="cartModal__title">Зробити замовлення</div>
             <form className="cartModal__form">
               <div className="cartModal__form__title">Прізвище та ім'я *</div>
