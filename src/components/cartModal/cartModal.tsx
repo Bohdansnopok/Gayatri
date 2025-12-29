@@ -10,10 +10,11 @@ import { useCartStore } from "@/store/cartStore";
 
 export interface Product {
   id: string;
-  image: string;
-  mililitres: number;
   name: string;
+  mililitres: string;
+  category: string;
   price: number;
+  image?: string;
 }
 
 export default function CartModal() {
