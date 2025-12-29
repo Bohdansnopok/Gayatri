@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   font-size: 20px;
   letter-spacing: 1.1;
   color: #4a4a4a;
-    font-family: "Lato", sans-serif;
-
+  font-family: "Lato", sans-serif;
 }
 
 * {
@@ -51,7 +50,7 @@ h2 {
 
 .defaultButton {
   background-color: transparent;
-  border: 1px solid #2b2623;
+  border: 1px solid #4a4a4a;
   border-radius: 20px;
   font-size: 20px;
   text-transform: uppercase;
@@ -94,13 +93,18 @@ h2 {
   }
 
   .face__card {
-    background-color: #f5e6d3;
+    background-color: #FFF9F5;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 100px;
     padding-bottom: 50px;
     border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(217, 185, 163);
+
+    h2 {
+      color: #2D2926;
+    }
 
     section {
       display: flex;
@@ -110,7 +114,7 @@ h2 {
     }
 
     .face__card__price {
-      color: #8e8e8e;
+      color: #B39274;
       font-size: 25px;
     }
   }
@@ -126,12 +130,12 @@ h2 {
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: darksalmon;
+    background-color: #E2A79B;
     transition: background-color 0.3s;
   }
 
   .face__card__button:hover {
-    background-color: pink;
+    background-color: #D18D7F;
   }
 }
 

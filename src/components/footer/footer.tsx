@@ -42,9 +42,6 @@ export default function Footer() {
           </a>
 
           <div className="footer__right__navs">
-            <h2 className="footer__right__navs__nav">
-              ФОП Шейко Наталія Вікторівна
-            </h2>
             <a href="">
               <i className="footer__right__navs__nav">
                 Договір публічної оферти
