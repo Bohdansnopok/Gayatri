@@ -126,6 +126,21 @@
     outline: none;
     border: 1px solid black;
   }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.cartModal__payment {
+  width: 100%;
 }
 
 .cartModal__payment__version {
@@ -248,7 +263,7 @@
 
   .cartOpenButton {
     padding: 10px;
-    
+
     span {
       font-size: 5px;
       padding: 5px 6px;
