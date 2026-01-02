@@ -25,11 +25,18 @@ export default function AdminBody() {
           <div  key={bodyProducts.id}  className="admin__edit__card">
             {bodyProducts.image && (
               <img
-                src={bodyProducts.image}
+                src={`http://localhost:5000${bodyProducts.image}`}
                 alt={bodyProducts.name || ""}
                 className="admin__edit__card__image"
                 width={300}
                 height={350}
+                onError={(e) => {
+                  console.error(
+                    "Помилка завантаження зображення:",
+                    bodyProducts.image
+                  );
+                  e.currentTarget.src = "/placeholder.jpg";
+                }}
               />
             )}
             <div className="admin__edit__card__name">{bodyProducts.name}</div>

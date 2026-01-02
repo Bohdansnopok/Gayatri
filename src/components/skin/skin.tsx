@@ -9,26 +9,32 @@ export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
   const { fetchBodyProducts, bodyProducts } = useProductStore();
 
-useEffect(() => {
-  fetchBodyProducts()
-})
+  useEffect(() => {
+    fetchBodyProducts();
+  });
 
   return (
     <section id="decorative" className="face">
       <div className="container">
-        <h1>Декоративна косметика</h1>
+        <h1>Догляд за тілом</h1>
         <div className="face__cards">
           {bodyProducts.map((product, index) => (
             <div key={product.id} className="face__card">
               <section>
                 <div className="face__card__image-container">
-                  <Image
-                    src={product.image}
-                    className="face__card__image"
-                    alt={product.name}
-                    height={500}
-                    width={400}
-                    priority={index <= 1}
+                  <img
+                    src={`http://localhost:5000${product.image}`}
+                    alt={product.name || ""}
+                    className="admin__edit__card__image"
+                    width={300}
+                    height={350}
+                    onError={(e) => {
+                      console.error(
+                        "Помилка завантаження зображення:",
+                        product.image
+                      );
+                      e.currentTarget.src = "/placeholder.jpg";
+                    }}
                   />
                 </div>
 

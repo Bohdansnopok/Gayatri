@@ -26,11 +26,18 @@ export default function AdminDecor() {
           <div key={decorProducts.id} className="admin__edit__card">
             {decorProducts.image && (
               <img
-                src={decorProducts.image}
+                src={`http://localhost:5000${decorProducts.image}`}
                 alt={decorProducts.name || ""}
                 className="admin__edit__card__image"
                 width={300}
                 height={350}
+                onError={(e) => {
+                  console.error(
+                    "Помилка завантаження зображення:",
+                    decorProducts.image
+                  );
+                  e.currentTarget.src = "/placeholder.jpg";
+                }}
               />
             )}
             <div className="admin__edit__card__name">{decorProducts.name}</div>

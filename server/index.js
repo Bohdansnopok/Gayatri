@@ -202,12 +202,8 @@ app.delete("/:category/:id", (req, res) => {
 // Додаємо статичний доступ до uploads папки
 app.use('/uploads', express.static(uploadsDir));
 
-const PORT = 5000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log("=".repeat(50));
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📂 Uploads folder: ${uploadsDir}`);
-  console.log(`📁 Current working directory: ${process.cwd()}`);
-  console.log("=".repeat(50));
 });

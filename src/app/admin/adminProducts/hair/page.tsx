@@ -25,11 +25,18 @@ export default function AdminHair() {
           <div key={hairProducts.id} className="admin__edit__card">
             {hairProducts.image && (
               <img
-                src={hairProducts.image}
+                src={`http://localhost:5000${hairProducts.image}`}
                 alt={hairProducts.name || ""}
                 className="admin__edit__card__image"
                 width={300}
                 height={350}
+                onError={(e) => {
+                  console.error(
+                    "Помилка завантаження зображення:",
+                    hairProducts.image
+                  );
+                  e.currentTarget.src = "/placeholder.jpg";
+                }}
               />
             )}
             <div className="admin__edit__card__name">{hairProducts.name}</div>
