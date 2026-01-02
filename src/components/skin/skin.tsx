@@ -1,31 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import intensiveHydration from "../../../public/intensiveGydrotation.jpg";
 import { useCartStore } from "@/store/cartStore";
+import { useProductStore } from "@/store/productStore";
+import { useEffect } from "react";
 
-export interface Product {
-  id: string;
-  image: string;
-  name: string;
-  price: string;
-  category: string;
-}
-
-interface skinProps {
-  products?: Product[];
-}
-
-export default function Skin({ products = [] }: skinProps) {
+export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
-  if (products.length === 0) return null;
+  const { fetchBodyProducts, bodyProducts } = useProductStore();
+
+useEffect(() => {
+  fetchBodyProducts()
+})
 
   return (
-    <section id="skin" className="face">
+    <section id="decorative" className="face">
       <div className="container">
-        <h1>Догляд за тілом</h1>
+        <h1>Декоративна косметика</h1>
         <div className="face__cards">
-          {products.map((product) => (
+          {bodyProducts.map((product, index) => (
             <div key={product.id} className="face__card">
               <section>
                 <div className="face__card__image-container">
@@ -35,10 +28,12 @@ export default function Skin({ products = [] }: skinProps) {
                     alt={product.name}
                     height={500}
                     width={400}
-                    priority={Number(product.id) <= 2}
+                    priority={index <= 1}
                   />
                 </div>
+
                 <h2>{product.name}</h2>
+                {/* <h4>{product.mililitres}</h4> */}
               </section>
 
               <section>
@@ -48,7 +43,7 @@ export default function Skin({ products = [] }: skinProps) {
                     addToCart({
                       ...product,
                       price: Number(product.price),
-                      mililitres: "50 мл",
+                      mililitres: Number(product.mililitres),
                     });
                   }}
                   className="face__card__button defaultButton"

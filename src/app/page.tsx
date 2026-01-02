@@ -14,18 +14,13 @@ import DecorativeCosmetic from "@/components/decorativeCosmetic/decorativeCosmet
 import { Product } from "@/store/cartStore";
 
 export default function Home() {
-  const faceItems = (faceCosmetic as Product[]).filter((item) => item.category === "face");
-  const skinItems = (skinCosmetic as Product[]).filter((item) => item.category === "skin");
-  const hairItems = (hairCosmetic as Product[]).filter((item) => item.category === "hair");
-  const decorationItems = (decorationCosmetic as Product[]).filter((item) => item.category === "decoration");
-
   return (
     <main>
       <EssentialOils />
-      <Face products={faceItems} />
-      <Skin products={skinItems} />
-      <Hair products={hairItems} />
-      <DecorativeCosmetic products={decorationItems}/>
+      <Face/>
+      <Skin/>
+      <Hair/>
+      <DecorativeCosmetic/>
     </main>
   );
 }

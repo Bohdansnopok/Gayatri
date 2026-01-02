@@ -2,29 +2,23 @@
 
 import Image from "next/image";
 import { useCartStore } from "@/store/cartStore";
+import { useProductStore } from "@/store/productStore";
+import { useEffect } from "react";
 
-export interface Product {
-  id: string;
-  image: string;
-  name: string;
-  price: string;
-  category: string;
-}
-
-interface DecorativeProps {
-  products?: Product[];
-}
-
-export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
-  if (products.length === 0) return null;
+export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
+  const { fetchDecorProducts, decorProducts } = useProductStore();
+
+  useEffect(() => {
+    fetchDecorProducts();
+  });
 
   return (
     <section id="decorative" className="face">
       <div className="container">
         <h1>Декоративна косметика</h1>
         <div className="face__cards">
-          {products.map((product, index) => (
+          {decorProducts.map((product, index) => (
             <div key={product.id} className="face__card">
               <section>
                 <div className="face__card__image-container">
@@ -39,6 +33,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                 </div>
 
                 <h2>{product.name}</h2>
+                {/* <h4>{product.mililitres}</h4> */}
               </section>
 
               <section>
@@ -48,7 +43,7 @@ export default function DecorativeCosmetic({ products = [] }: DecorativeProps) {
                     addToCart({
                       ...product,
                       price: Number(product.price),
-                      mililitres: "50 мл",
+                      mililitres: Number(product.mililitres),
                     });
                   }}
                   className="face__card__button defaultButton"

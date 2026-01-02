@@ -1,32 +1,24 @@
 "use client";
 
-import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
+import { useCartStore } from "@/store/cartStore";
+import { useProductStore } from "@/store/productStore";
+import { useEffect } from "react";
 
-export interface Product {
-  id: string;
-  image: string;
-  name: string;
-  price: string;
-  category: string;
-}
-
-interface FaceProps {
-  products?: Product[];
-}
-
-export default function Face({ products = [] }: FaceProps) {
-  if (products.length === 0) return null;
+export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
+  const { fetchFaceProducts, faceProducts } = useProductStore();
 
+  useEffect(() => {
+    fetchFaceProducts();
+  });
 
   return (
-    <section id="face" className="face">
+    <section id="decorative" className="face">
       <div className="container">
-        <h1>Догляд за обличчям</h1>
-
+        <h1>Декоративна косметика</h1>
         <div className="face__cards">
-          {products.map((product) => (
+          {faceProducts.map((product, index) => (
             <div key={product.id} className="face__card">
               <section>
                 <div className="face__card__image-container">
@@ -36,11 +28,12 @@ export default function Face({ products = [] }: FaceProps) {
                     alt={product.name}
                     height={500}
                     width={400}
-                    priority={Number(product.id) <= 2}
-
+                    priority={index <= 1}
                   />
                 </div>
+
                 <h2>{product.name}</h2>
+                {/* <h4>{product.mililitres}</h4> */}
               </section>
 
               <section>
@@ -50,7 +43,7 @@ export default function Face({ products = [] }: FaceProps) {
                     addToCart({
                       ...product,
                       price: Number(product.price),
-                      mililitres: "50 мл",
+                      mililitres: Number(product.mililitres),
                     });
                   }}
                   className="face__card__button defaultButton"

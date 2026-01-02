@@ -4,8 +4,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export type Product = {
   id: string;
   name: string;
-  mililitres: string;
-  category: string;
+  mililitres: number;
+  category?: string;
   price: number;
   image?: string;
   quantity: number;

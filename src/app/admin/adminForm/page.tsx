@@ -12,6 +12,7 @@ export default function AdminForm({ category }: Props) {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [mililitres, setMililitres] = useState("");
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -75,6 +76,7 @@ export default function AdminForm({ category }: Props) {
     }
 
     const priceNum = parseFloat(price);
+    const mililitresNum = parseFloat(mililitres);
     if (isNaN(priceNum) || priceNum <= 0) {
       alert("Введите корректную цену");
       return;
@@ -83,17 +85,25 @@ export default function AdminForm({ category }: Props) {
     setLoading(true);
 
     try {
+      if (!imageFile) {
+        alert("Завантажте зображення");
+        setLoading(false);
+        return;
+      }
+
       await addProduct(
         {
           name,
           price: priceNum,
-          imageFile: imageFile || undefined,
+          mililitres: mililitresNum,
+          imageFile,
         },
         category
       );
 
       setName("");
       setPrice("");
+      setMililitres("")
       setImageFile(null);
       setPreview(null);
 
@@ -166,8 +176,8 @@ export default function AdminForm({ category }: Props) {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           required
-          min="0"
-          step="0.01"
+          min="1"
+          step="1"
           disabled={loading}
         />
       </div>
