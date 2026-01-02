@@ -87,7 +87,7 @@ export default function AdminForm({ category }: Props) {
         {
           name,
           price: priceNum,
-          imageFile,
+          imageFile: imageFile || undefined,
         },
         category
       );
