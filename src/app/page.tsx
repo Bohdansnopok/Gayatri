@@ -6,10 +6,10 @@ import Skin from "@/components/skin/skin";
 import Hair from "@/components/hair/hair";
 import Footer from "@/components/footer/footer";
 import CartModal from "@/components/cartModal/cartModal";
-import faceCosmetic from "../../public/mock/faceCosmetic.json";
-import skinCosmetic from "../../public/mock/skinCosmetic.json";
-import hairCosmetic from "../../public/mock/hairCosmetic.json";
-import decorationCosmetic from "../../public/mock/decoration.json";
+import faceCosmetic from "../../server/mock/faceCosmetic.json";
+import skinCosmetic from "../../server/mock/skinCosmetic.json";
+import hairCosmetic from "../../server/mock/hairCosmetic.json";
+import decorationCosmetic from "../../server/mock/decoration.json";
 import DecorativeCosmetic from "@/components/decorativeCosmetic/decorativeCosmetic";
 
 export default function Home() {
@@ -27,7 +27,6 @@ export default function Home() {
       <Skin products={skinItems} />
       <Hair products={hairItems} />
       <DecorativeCosmetic products={decorationItems}/>
-      <Footer />
     </main>
   );
 }

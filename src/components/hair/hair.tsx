@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import hydrapertide from "../../../public/hydrapeptide.jpg";
+import hydrapertide from "../../../server/mock/hairCosmetic.json";
 import { useCartStore } from "@/store/cartStore";
 
 export interface Product {
