@@ -37,7 +37,7 @@ export default function () {
         className="adminLogin__password"
       />
       <button type="submit" className="defaultButton">
-        Войти в админ панель
+        Увійти в адмін панель
       </button>
     </form>
   );
