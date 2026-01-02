@@ -11,14 +11,13 @@ import skinCosmetic from "../../server/mock/skinCosmetic.json";
 import hairCosmetic from "../../server/mock/hairCosmetic.json";
 import decorationCosmetic from "../../server/mock/decoration.json";
 import DecorativeCosmetic from "@/components/decorativeCosmetic/decorativeCosmetic";
+import { Product } from "@/store/cartStore";
 
 export default function Home() {
-  const faceItems = faceCosmetic.filter((item) => item.category === "face");
-  const skinItems = skinCosmetic.filter((item) => item.category === "skin");
-  const hairItems = hairCosmetic.filter((item) => item.category === "hair");
-  const decorationItems = decorationCosmetic.filter(
-    (item) => item.category === "decoration"
-  );
+  const faceItems = (faceCosmetic as Product[]).filter((item) => item.category === "face");
+  const skinItems = (skinCosmetic as Product[]).filter((item) => item.category === "skin");
+  const hairItems = (hairCosmetic as Product[]).filter((item) => item.category === "hair");
+  const decorationItems = (decorationCosmetic as Product[]).filter((item) => item.category === "decoration");
 
   return (
     <main>
