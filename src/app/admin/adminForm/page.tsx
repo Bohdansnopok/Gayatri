@@ -145,7 +145,7 @@ export default function AdminForm({ category }: Props) {
         />
       </div>
 
-      {/* <div className="form__group">
+      <div className="form__group">
         <input
           type="number"
           className="form__input"
@@ -156,7 +156,7 @@ export default function AdminForm({ category }: Props) {
           step="1"
           disabled={loading}
         />
-      </div> */}
+      </div>
 
       <button
         type="submit"
