@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 export interface Product {
   id: string;
   name: string;
-  mililitres: string;
+  mililitres: number;
   category: string;
   price: number;
   image?: string;
@@ -93,6 +93,9 @@ export default function CartModal() {
                         height={46}
                         width={46}
                         className="cartModal__list__product__image"
+                        onError={(e) => {
+                          e.currentTarget.src = "/placeholder.jpg";
+                        }}
                       />
                       <div className="cartModal__list__product__info">
                         <div className="cartModal__list__product__name">
