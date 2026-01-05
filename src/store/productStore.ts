@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const API =
   process.env.NODE_ENV === "production"
-    ? "https://gayatri-backend.onrender.com"
+    ? "https://gayatri-backend-dn3j.onrender.com"
     : "http://localhost:5000";
 
 type Product = {
