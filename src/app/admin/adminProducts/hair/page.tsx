@@ -41,6 +41,8 @@ export default function AdminHair() {
             )}
             <div className="admin__edit__card__name">{hairProducts.name}</div>
 
+            <div className="admin__edit__card__mililitres">{hairProducts.mililitres} Мл</div>
+
             <div className="admin__edit__card__price">{hairProducts.price}</div>
 
             <div className="admin__edit__card__buttons">

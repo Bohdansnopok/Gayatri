@@ -41,6 +41,8 @@ export default function AdminBody() {
             )}
             <div className="admin__edit__card__name">{bodyProducts.name}</div>
 
+            <div className="admin__edit__card__mililitres">{bodyProducts.mililitres} Мл</div>
+
             <div className="admin__edit__card__price">{bodyProducts.price}</div>
 
             <div className="admin__edit__card__buttons">

@@ -41,6 +41,8 @@ export default function AdminOils() {
             )}
             <div className="admin__edit__card__name">{oilsProducts.name}</div>
 
+            <div className="admin__edit__card__mililitres">{oilsProducts.mililitres} Мл</div>
+
             <div className="admin__edit__card__price">{oilsProducts.price}</div>
 
             <div className="admin__edit__card__buttons">

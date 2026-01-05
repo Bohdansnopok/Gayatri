@@ -42,6 +42,8 @@ export default function AdminEdit() {
 
             <div className="admin__edit__card__name">{faceProducts.name}</div>
 
+            <div className="admin__edit__card__mililitres">{faceProducts.mililitres} Мл</div>
+
             <div className="admin__edit__card__price">{faceProducts.price}</div>
 
             <div className="admin__edit__card__buttons">

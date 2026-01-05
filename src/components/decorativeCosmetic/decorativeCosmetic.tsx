@@ -23,7 +23,7 @@ export default function DecorativeCosmetic() {
               <section>
                 <div className="face__card__image-container">
                   <img
-                    src={`http://localhost:5000${product.image}`}
+                    src={product.image}
                     alt={product.name || ""}
                     className="face__card__image"
                     width={300}
@@ -39,7 +39,7 @@ export default function DecorativeCosmetic() {
                 </div>
 
                 <h2>{product.name}</h2>
-                {/* <h4>{product.mililitres}</h4> */}
+                <h4>{product.mililitres} Мл</h4>
               </section>
 
               <section>

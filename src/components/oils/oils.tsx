@@ -39,7 +39,7 @@ export default function Oils() {
                 </div>
 
                 <h2>{product.name}</h2>
-                <h4>{product.mililitres}</h4>
+                <h4>{product.mililitres} Мл</h4>
               </section>
 
               <section>

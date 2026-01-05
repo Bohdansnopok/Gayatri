@@ -114,6 +114,7 @@ export const useProductStore = create<Store>((set, get) => ({
       formData.append("name", product.name);
       formData.append("price", product.price.toString());
       formData.append("category", categoryLower);
+      formData.append("mililitres", product.mililitres.toString());
 
       if (product.imageFile) {
         formData.append("image", product.imageFile);

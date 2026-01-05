@@ -42,6 +42,8 @@ export default function AdminDecor() {
             )}
             <div className="admin__edit__card__name">{decorProducts.name}</div>
 
+            <div className="admin__edit__card__mililitres">{decorProducts.mililitres} Мл</div>
+
             <div className="admin__edit__card__price">
               {decorProducts.price}
             </div>
