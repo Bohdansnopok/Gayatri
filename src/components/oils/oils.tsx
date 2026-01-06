@@ -14,7 +14,7 @@ export default function Oils() {
   });
 
   return (
-    <section id="decorative" className="face">
+    <section id="Oils" className="face">
       <div className="container">
         <h1>Ефірні олії</h1>
         <div className="face__cards">

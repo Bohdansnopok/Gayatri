@@ -14,7 +14,7 @@ export default function DecorativeCosmetic() {
   });
 
   return (
-    <section id="decorative" className="face">
+    <section id="hair" className="face">
       <div className="container">
         <h1>Догляд за волоссям</h1>
         <div className="face__cards">

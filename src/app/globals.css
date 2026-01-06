@@ -168,3 +168,38 @@ h2 {
     }
   }
 }
+
+.copyright {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .copyright__aboutCopyright {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .copyright__aboutOffer {
+    font-size: 15px;
+    margin-top: 20px;
+    display: block;
+  }
+
+  .copyright__rightsList {
+    max-width: 700px;
+    font-size: 16px;
+
+    .copyright__rightsList__item {
+      margin-top: 20px;
+
+      span {
+        color: red;
+        font-weight: 700;
+      }
+    }
+  }
+}

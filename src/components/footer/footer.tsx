@@ -1,10 +1,6 @@
 import Image from "next/image";
 import "./footer.css";
-import {
-  FaInstagram,
-  FaTelegram,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -19,11 +15,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaInstagram size={60} className="footer__left__socials__social"/>
+              <FaInstagram
+                size={30}
+                className="footer__left__socials__social"
+              />
             </a>
 
             <a href="https://t.me" target="_blank" rel="noopener noreferrer">
-              <FaTelegram size={60} className="footer__left__socials__social"/>
+              <FaTelegram size={30} className="footer__left__socials__social" />
             </a>
 
             <a
@@ -31,7 +30,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaYoutube size={60} className="footer__left__socials__social"/>
+              <FaYoutube size={30} className="footer__left__socials__social" />
             </a>
           </div>
         </div>
@@ -44,12 +43,12 @@ export default function Footer() {
           <div className="footer__right__navs">
             <a href="">
               <i className="footer__right__navs__nav">
-                Договір публічної оферти
+                <a href="/copyright">Договір публічної оферти</a>
               </i>
             </a>
             <a href="">
               <i className="footer__right__navs__nav">
-                Політика конфіденційності
+                <a href="/privacyPolice">Політика конфіденційності</a>
               </i>
             </a>
           </div>

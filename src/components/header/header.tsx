@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import logo from "../../../public/logo.png";
 import "./header.css";
 import Link from "next/link";
+import CartModal from "../cartModal/cartModal";
 
 export default function Header() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();
+
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; 
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -25,9 +26,10 @@ export default function Header() {
   };
 
   const navItems = [
-    { name: "Догляд за обличчям", id: "face" },
-    { name: "Догляд за тілом", id: "skin" },
-    { name: "Догляд за волоссям", id: "hair" },
+    { name: "Ефірні олії", id: "Oils" },
+    { name: "Обличчя", id: "face" },
+    { name: "Тіло", id: "skin" },
+    { name: "Волосся", id: "hair" },
     { name: "Декоративна косметика", id: "decorative" },
   ];
 
@@ -42,20 +44,19 @@ export default function Header() {
             width={140}
             className="header__logo"
           />
-          <p>Ефірні олії Gayatri</p>
         </a>
 
         <div className="header__navs">
           {navItems.map((item) => (
-        <a
-          key={item.id}
-          href={`#${item.id}`}
-          onClick={(e) => handleScroll(e, item.id)}
-          className="header__nav"
-        >
-          {item.name}
-        </a>
-      ))}
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => handleScroll(e, item.id)}
+              className="header__nav"
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
     </div>
