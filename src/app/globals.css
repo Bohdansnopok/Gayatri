@@ -94,9 +94,9 @@ h2 {
   .face__cards {
     margin: 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
-    gap: 50px;
+    gap: 20px;
   }
 
   .face__card {
@@ -104,7 +104,7 @@ h2 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
     padding-bottom: 50px;
     border-radius: 50px;
     box-shadow: 0 10px 30px rgba(217, 185, 163);

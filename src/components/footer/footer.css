@@ -35,7 +35,7 @@
   .footer__right {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     text-align: right;
 
     .footer__right__reqQuestion {
@@ -44,6 +44,7 @@
       gap: 10px;
       align-self: flex-end;
       color: #4A4A4A;
+      font-size: 13px;
     }
 
     .footer__right__reqQuestion:hover {
@@ -53,14 +54,19 @@
     .footer__right__navs {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
 
       .footer__right__navs__nav {
         a {
           text-decoration: none;
           color: #4A4A4A;
+          font-size: 10px;
         }
       }
+    }
+
+    .footer__right__allrights {
+      font-size: 10px;
     }
   }
 }

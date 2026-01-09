@@ -40,8 +40,8 @@ export default function Header() {
           <Image
             src={logo}
             alt=""
-            height={140}
-            width={140}
+            height={100}
+            width={100}
             className="header__logo"
           />
         </a>
