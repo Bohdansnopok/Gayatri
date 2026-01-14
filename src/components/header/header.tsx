@@ -41,7 +41,7 @@ export default function Header() {
             src={logo}
             alt=""
             height={100}
-            width={100}
+            width={110}
             className="header__logo"
           />
         </a>
