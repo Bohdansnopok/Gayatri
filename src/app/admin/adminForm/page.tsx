@@ -93,7 +93,7 @@ export default function AdminForm({ category }: Props) {
 
   return (
     <form className="admin__form" onSubmit={handleSubmit}>
-      <h3 className="form__title">Категорія: {category}</h3>
+      <h3 className="form__title">Gayatri shop:{category}</h3>
 
       <div className="form__group">
         <input
