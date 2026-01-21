@@ -18,10 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <CartModal />
-        {children}
-        <Footer />
+        <header>
+          <Header />
+        </header>
+        <main>
+          <CartModal />
+          {children}
+        </main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

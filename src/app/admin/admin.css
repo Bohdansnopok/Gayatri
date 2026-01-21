@@ -25,6 +25,9 @@
 }
 
 .admin__sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -48,6 +51,8 @@
   align-items: start;
   gap: 50px;
   padding-bottom: 50px;
+  position: relative;
+  padding-left: 350px;
 }
 
 .admin__edit__card__image {
@@ -120,6 +125,7 @@
   }
 
   input,
+  textarea,
   .admin__form__imageUpload,
   .admin__form__buttonUpload {
     background-color: lightgray;
@@ -128,8 +134,10 @@
     font-size: 15px;
   }
 
-  input {
+  input, textarea {
     width: 100%;
+    max-width: 100%;
+    max-height: 300px;
   }
 
   .admin__form__buttonUpload {
