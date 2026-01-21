@@ -1,7 +1,8 @@
+import { Product } from "@/store/cartStore";
 import "./cartDescriptionModal.css";
 
 type ModalProps = {
-  product: Product;
+  product: any;
   onClose: () => void;
 };
 

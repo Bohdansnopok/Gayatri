@@ -9,7 +9,7 @@ import CartDescriptionModal from "../cartDescriptionModal/cartDescriptionModal";
 export default function Oils() {
   const addToCart = useCartStore((state) => state.addToCart);
   const { fetchOilsProducts, oilsProducts } = useProductStore();
-    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
   
 
   useEffect(() => {
