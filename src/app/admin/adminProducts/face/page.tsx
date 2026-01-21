@@ -33,26 +33,36 @@ export default function AdminEdit() {
                 onError={(e) => {
                   console.error(
                     "Помилка завантаження зображення:",
-                    faceProducts.image
+                    faceProducts.image,
                   );
                   e.currentTarget.src = "/placeholder.jpg";
                 }}
               />
             )}
 
-            <div className="admin__edit__card__name">{faceProducts.name}</div>
+            <div className="face__card__wrapper">
+              <div className="admin__edit__card__name">{faceProducts.name}</div>
 
-            <div className="admin__edit__card__mililitres">{faceProducts.mililitres} Мл</div>
+              <div className="admin__edit__card__mililitres">
+                {faceProducts.mililitres} Мл
+              </div>
 
-            <div className="admin__edit__card__price">{faceProducts.price}</div>
+              <div className="admin__edit__card__description">
+                {faceProducts.description}
+              </div>
 
-            <div className="admin__edit__card__buttons">
-              <button
-                onClick={() => deleteProduct(faceProducts.id, "face")}
-                className="admin__edit__card__buttons__button"
-              >
-                <FaTrash /> Видалити
-              </button>
+              <div className="admin__edit__card__price">
+                {faceProducts.price}
+              </div>
+
+              <div className="admin__edit__card__buttons">
+                <button
+                  onClick={() => deleteProduct(faceProducts.id, "face")}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaTrash /> Видалити
+                </button>
+              </div>
             </div>
           </div>
         ))}

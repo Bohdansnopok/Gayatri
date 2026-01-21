@@ -33,25 +33,31 @@ export default function AdminOils() {
                 onError={(e) => {
                   console.error(
                     "Помилка завантаження зображення:",
-                    oilsProducts.image
+                    oilsProducts.image,
                   );
                   e.currentTarget.src = "/placeholder.jpg";
                 }}
               />
             )}
-            <div className="admin__edit__card__name">{oilsProducts.name}</div>
-
-            <div className="admin__edit__card__mililitres">{oilsProducts.mililitres} Мл</div>
-
-            <div className="admin__edit__card__price">{oilsProducts.price}</div>
-
-            <div className="admin__edit__card__buttons">
-              <button
-                onClick={() => deleteProduct(oilsProducts.id, "oils")}
-                className="admin__edit__card__buttons__button"
-              >
-                <FaTrash /> Видалити
-              </button>
+            <div className="face__card__wrapper">
+              <div className="admin__edit__card__name">{oilsProducts.name}</div>
+              <div className="admin__edit__card__mililitres">
+                {oilsProducts.mililitres} Мл
+              </div>
+              <div className="admin__edit__card__description">
+                {oilsProducts.description}
+              </div>
+              <div className="admin__edit__card__price">
+                {oilsProducts.price}
+              </div>
+              <div className="admin__edit__card__buttons">
+                <button
+                  onClick={() => deleteProduct(oilsProducts.id, "oils")}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaTrash /> Видалити
+                </button>
+              </div>
             </div>
           </div>
         ))}

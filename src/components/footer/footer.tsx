@@ -1,6 +1,7 @@
 import Image from "next/image";
 import "./footer.css";
 import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -39,18 +40,18 @@ export default function Footer() {
             ПОСТАВИТИ ПИТАННЯ
             <FaTelegram size={30} />
           </a>
-
+\
           <div className="footer__right__navs">
-            <a href="">
+            <Link href="">
               <i className="footer__right__navs__nav">
                 <a href="/copyright">Договір публічної оферти</a>
               </i>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <i className="footer__right__navs__nav">
                 <a href="/privacyPolice">Політика конфіденційності</a>
               </i>
-            </a>
+            </Link>
           </div>
 
           <div className="footer__right__allrights">All rights Reserved</div>

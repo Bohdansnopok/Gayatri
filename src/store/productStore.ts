@@ -12,6 +12,7 @@ type Product = {
   price: number;
   category?: string;
   mililitres: number;
+  description?: string;
 };
 
 type NewProduct = {
@@ -19,6 +20,7 @@ type NewProduct = {
   price: number;
   imageFile: File;
   mililitres: number;
+  description?: string;
 };
 
 type Store = {
@@ -115,6 +117,7 @@ export const useProductStore = create<Store>((set, get) => ({
       formData.append("price", product.price.toString());
       formData.append("category", categoryLower);
       formData.append("mililitres", product.mililitres.toString());
+      formData.append("description", product.description || "");
 
       if (product.imageFile) {
         formData.append("image", product.imageFile);
@@ -183,11 +186,11 @@ export const useProductStore = create<Store>((set, get) => ({
         // Більш детальна помилка
         if (res.status === 404) {
           throw new Error(
-            `Продукт не знайдено (ID: ${id}, категорія: ${category})`
+            `Продукт не знайдено (ID: ${id}, категорія: ${category})`,
           );
         }
         throw new Error(
-          `Не вдалося видалити продукт: ${res.status} ${res.statusText}`
+          `Не вдалося видалити продукт: ${res.status} ${res.statusText}`,
         );
       }
 
@@ -196,35 +199,35 @@ export const useProductStore = create<Store>((set, get) => ({
         case "face":
           set((state) => ({
             faceProducts: state.faceProducts.filter(
-              (product) => product.id !== id
+              (product) => product.id !== id,
             ),
           }));
           break;
         case "body":
           set((state) => ({
             bodyProducts: state.bodyProducts.filter(
-              (product) => product.id !== id
+              (product) => product.id !== id,
             ),
           }));
           break;
         case "hair":
           set((state) => ({
             hairProducts: state.hairProducts.filter(
-              (product) => product.id !== id
+              (product) => product.id !== id,
             ),
           }));
           break;
         case "decor":
           set((state) => ({
             decorProducts: state.decorProducts.filter(
-              (product) => product.id !== id
+              (product) => product.id !== id,
             ),
           }));
           break;
         case "oils":
           set((state) => ({
             oilsProducts: state.oilsProducts.filter(
-              (product) => product.id !== id
+              (product) => product.id !== id,
             ),
           }));
           break;

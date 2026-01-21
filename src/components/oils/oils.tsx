@@ -3,11 +3,14 @@
 import Image from "next/image";
 import { useCartStore } from "@/store/cartStore";
 import { useProductStore } from "@/store/productStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CartDescriptionModal from "../cartDescriptionModal/cartDescriptionModal";
 
 export default function Oils() {
   const addToCart = useCartStore((state) => state.addToCart);
   const { fetchOilsProducts, oilsProducts } = useProductStore();
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  
 
   useEffect(() => {
     fetchOilsProducts();
@@ -40,6 +43,10 @@ export default function Oils() {
 
                 <h2>{product.name}</h2>
                 <h4>{product.mililitres} Мл</h4>
+                <button onClick={() => setSelectedProduct(product)}>
+                  Детальніше / Редагувати
+                </button>
+                {/* <p>{product.description}</p> */}
               </section>
 
               <section>
@@ -61,6 +68,12 @@ export default function Oils() {
           ))}
         </div>
       </div>
+      {selectedProduct && (
+              <CartDescriptionModal 
+                product={selectedProduct} 
+                onClose={() => setSelectedProduct(null)} 
+              />
+            )}
     </section>
   );
 }

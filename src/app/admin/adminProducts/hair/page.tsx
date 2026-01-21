@@ -23,7 +23,7 @@ export default function AdminHair() {
       <div className="admin__edit">
         {hairProducts.map((hairProducts) => (
           <div key={hairProducts.id} className="admin__edit__card">
-           {hairProducts.image && (
+            {hairProducts.image && (
               <img
                 src={hairProducts.image}
                 alt={hairProducts.name || ""}
@@ -33,25 +33,35 @@ export default function AdminHair() {
                 onError={(e) => {
                   console.error(
                     "Помилка завантаження зображення:",
-                    hairProducts.image
+                    hairProducts.image,
                   );
                   e.currentTarget.src = "/placeholder.jpg";
                 }}
               />
             )}
-            <div className="admin__edit__card__name">{hairProducts.name}</div>
+            <div className="face__card__wrapper">
+              <div className="admin__edit__card__name">{hairProducts.name}</div>
 
-            <div className="admin__edit__card__mililitres">{hairProducts.mililitres} Мл</div>
+              <div className="admin__edit__card__mililitres">
+                {hairProducts.mililitres} Мл
+              </div>
 
-            <div className="admin__edit__card__price">{hairProducts.price}</div>
+              <div className="admin__edit__card__description">
+                {hairProducts.description}
+              </div>
 
-            <div className="admin__edit__card__buttons">
-              <button
-                onClick={() => deleteProduct(hairProducts.id, "hair")}
-                className="admin__edit__card__buttons__button"
-              >
-                <FaTrash /> Видалити
-              </button>
+              <div className="admin__edit__card__price">
+                {hairProducts.price}
+              </div>
+
+              <div className="admin__edit__card__buttons">
+                <button
+                  onClick={() => deleteProduct(hairProducts.id, "hair")}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaTrash /> Видалити
+                </button>
+              </div>
             </div>
           </div>
         ))}

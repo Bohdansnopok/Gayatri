@@ -15,14 +15,14 @@ export default function AdminBody() {
     fetchBodyProducts();
   }, []);
 
-  useAuth()
+  useAuth();
 
   return (
     <aside className="admin">
       <AdminSidebar />
       <div className="admin__edit">
         {bodyProducts.map((bodyProducts) => (
-          <div  key={bodyProducts.id}  className="admin__edit__card">
+          <div key={bodyProducts.id} className="admin__edit__card">
             {bodyProducts.image && (
               <img
                 src={bodyProducts.image}
@@ -33,22 +33,35 @@ export default function AdminBody() {
                 onError={(e) => {
                   console.error(
                     "Помилка завантаження зображення:",
-                    bodyProducts.image
+                    bodyProducts.image,
                   );
                   e.currentTarget.src = "/placeholder.jpg";
                 }}
               />
             )}
-            <div className="admin__edit__card__name">{bodyProducts.name}</div>
+            <div className="face__card__wrapper">
+              <div className="admin__edit__card__name">{bodyProducts.name}</div>
 
-            <div className="admin__edit__card__mililitres">{bodyProducts.mililitres} Мл</div>
+              <div className="admin__edit__card__mililitres">
+                {bodyProducts.mililitres} Мл
+              </div>
 
-            <div className="admin__edit__card__price">{bodyProducts.price}</div>
+              <div className="admin__edit__card__description">
+                {bodyProducts.description}
+              </div>
 
-            <div className="admin__edit__card__buttons">
-              <button onClick={() => deleteProduct(bodyProducts.id, "body")} className="admin__edit__card__buttons__button">
-                <FaTrash /> Видалити
-              </button>
+              <div className="admin__edit__card__price">
+                {bodyProducts.price}
+              </div>
+
+              <div className="admin__edit__card__buttons">
+                <button
+                  onClick={() => deleteProduct(bodyProducts.id, "body")}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaTrash /> Видалити
+                </button>
+              </div>
             </div>
           </div>
         ))}

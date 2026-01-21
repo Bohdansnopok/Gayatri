@@ -34,27 +34,37 @@ export default function AdminDecor() {
                 onError={(e) => {
                   console.error(
                     "Помилка завантаження зображення:",
-                    decorProducts.image
+                    decorProducts.image,
                   );
                   e.currentTarget.src = "/placeholder.jpg";
                 }}
               />
             )}
-            <div className="admin__edit__card__name">{decorProducts.name}</div>
+            <div className="face__card__wrapper">
+              <div className="admin__edit__card__name">
+                {decorProducts.name}
+              </div>
 
-            <div className="admin__edit__card__mililitres">{decorProducts.mililitres} Мл</div>
+              <div className="admin__edit__card__mililitres">
+                {decorProducts.mililitres} Мл
+              </div>
 
-            <div className="admin__edit__card__price">
-              {decorProducts.price}
-            </div>
+              <div className="admin__edit__card__description">
+                {decorProducts.description}
+              </div>
 
-            <div className="admin__edit__card__buttons">
-              <button
-                onClick={() => deleteProduct(decorProducts.id, "decor")}
-                className="admin__edit__card__buttons__button"
-              >
-                <FaTrash /> Видалити
-              </button>
+              <div className="admin__edit__card__price">
+                {decorProducts.price}
+              </div>
+
+              <div className="admin__edit__card__buttons">
+                <button
+                  onClick={() => deleteProduct(decorProducts.id, "decor")}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaTrash /> Видалити
+                </button>
+              </div>
             </div>
           </div>
         ))}

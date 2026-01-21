@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useCartStore } from "@/store/cartStore";
 import { useProductStore } from "@/store/productStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CartDescriptionModal from "../cartDescriptionModal/cartDescriptionModal";
 
 export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
   const { fetchFaceProducts, faceProducts } = useProductStore();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     fetchFaceProducts();
@@ -31,7 +33,7 @@ export default function DecorativeCosmetic() {
                     onError={(e) => {
                       console.error(
                         "Помилка завантаження зображення:",
-                        product.image
+                        product.image,
                       );
                       e.currentTarget.src = "/placeholder.jpg";
                     }}
@@ -40,6 +42,11 @@ export default function DecorativeCosmetic() {
 
                 <h2>{product.name}</h2>
                 <h4>{product.mililitres} Мл</h4>
+                <button onClick={() => setSelectedProduct(product)}>
+                  Детальніше / Редагувати
+                </button>
+
+                {/* <p>{product.description}</p> */}
               </section>
 
               <section>
@@ -61,6 +68,13 @@ export default function DecorativeCosmetic() {
           ))}
         </div>
       </div>
+
+      {selectedProduct && (
+        <CartDescriptionModal 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+        />
+      )}
     </section>
   );
 }

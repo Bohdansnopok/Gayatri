@@ -78,6 +78,13 @@ h2 {
   }
 }
 
+.face__card__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
 .face {
   .container {
     display: flex;

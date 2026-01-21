@@ -14,6 +14,7 @@ export default function AdminForm({ category }: Props) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [mililitres, setMililitres] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -62,6 +63,7 @@ export default function AdminForm({ category }: Props) {
           name,
           price: priceNum,
           mililitres: mililitresNum,
+          description,
           imageFile,
         },
         category
@@ -70,6 +72,7 @@ export default function AdminForm({ category }: Props) {
       setName("");
       setPrice("");
       setMililitres("");
+      setDescription("");
       setImageFile(null);
       setPreview(null);
 
@@ -87,8 +90,6 @@ export default function AdminForm({ category }: Props) {
     }
   };
 
-  // Видалено всі useEffect з fetch - це була причина лагів
-  // useAuth також може бути причиною - спробуйте коментувати його
   useAuth();
 
   return (
@@ -154,6 +155,16 @@ export default function AdminForm({ category }: Props) {
           onChange={(e) => setMililitres(e.target.value)}
           min="0"
           step="1"
+          disabled={loading}
+        />
+      </div>
+
+      <div className="form__group">
+        <textarea
+          className="form__input"
+          placeholder="опис"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           disabled={loading}
         />
       </div>
