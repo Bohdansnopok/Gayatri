@@ -42,9 +42,9 @@ export default function DecorativeCosmetic() {
 
                 <h2>{product.name}</h2>
                 <h4>{product.mililitres} Мл</h4>
-                <button onClick={() => setSelectedProduct(product)}>
-                  Детальніше / Редагувати
-                </button>
+                <button className="face__detailsButton" onClick={() => setSelectedProduct(product)}>
+                    Детальніше 
+                  </button>
               </section>
 
               <section>

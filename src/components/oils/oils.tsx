@@ -10,7 +10,6 @@ export default function Oils() {
   const addToCart = useCartStore((state) => state.addToCart);
   const { fetchOilsProducts, oilsProducts } = useProductStore();
   const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
-  
 
   useEffect(() => {
     fetchOilsProducts();
@@ -34,7 +33,7 @@ export default function Oils() {
                     onError={(e) => {
                       console.error(
                         "Помилка завантаження зображення:",
-                        product.image
+                        product.image,
                       );
                       e.currentTarget.src = "/placeholder.jpg";
                     }}
@@ -43,14 +42,17 @@ export default function Oils() {
 
                 <h2>{product.name}</h2>
                 <h4>{product.mililitres} Мл</h4>
-                <button onClick={() => setSelectedProduct(product)}>
-                  Детальніше / Редагувати
-                </button>
                 {/* <p>{product.description}</p> */}
               </section>
 
               <section>
                 <div className="face__card__price">{product.price} грн</div>
+                <button
+                  className="face__detailsButton"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  Детальніше
+                </button>
                 <button
                   onClick={() => {
                     addToCart({
@@ -69,11 +71,11 @@ export default function Oils() {
         </div>
       </div>
       {selectedProduct && (
-              <CartDescriptionModal 
-                product={selectedProduct} 
-                onClose={() => setSelectedProduct(null)} 
-              />
-            )}
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   );
 }

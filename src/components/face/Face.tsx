@@ -42,8 +42,11 @@ export default function DecorativeCosmetic() {
 
                 <h2>{product.name}</h2>
                 <h4>{product.mililitres} Мл</h4>
-                <button onClick={() => setSelectedProduct(product)}>
-                  Детальніше / Редагувати
+                <button
+                  className="face__detailsButton"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  Детальніше
                 </button>
 
                 {/* <p>{product.description}</p> */}
@@ -70,9 +73,9 @@ export default function DecorativeCosmetic() {
       </div>
 
       {selectedProduct && (
-        <CartDescriptionModal 
-          product={selectedProduct} 
-          onClose={() => setSelectedProduct(null)} 
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
       )}
     </section>

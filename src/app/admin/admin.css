@@ -53,6 +53,12 @@
 .admin__edit__card__image {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+  width: 100%;
+  height: auto;
+}
+
+.admin__edit__card__description {
+  word-break: break-word;
 }
 
 .admin__edit {
@@ -72,6 +78,7 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0 10px 30px rgba(217, 185, 163);
+  max-width: 300px;
 }
 
 .admin__edit__card__buttons {

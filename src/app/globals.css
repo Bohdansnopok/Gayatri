@@ -140,6 +140,16 @@ h2 {
     border-top-left-radius: 50px;
   }
 
+.face__detailsButton {
+  max-width: 100px;
+  border: none;
+  background-color: #4a4a4a;
+  padding: 10px 15px;
+  color: white;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
   .face__card__button {
     margin: 0 auto;
     padding-left: 40px;
