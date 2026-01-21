@@ -118,18 +118,20 @@ h2 {
 
     h2 {
       color: #2d2926;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     section {
       display: flex;
       flex-direction: column;
-      gap: 30px;
       width: 100%;
     }
 
     .face__card__price {
       color: #b39274;
       font-size: 25px;
+      margin-bottom: 8px;
     }
   }
 
@@ -143,11 +145,16 @@ h2 {
 .face__detailsButton {
   max-width: 100px;
   border: none;
-  background-color: #4a4a4a;
-  padding: 10px 15px;
-  color: white;
+  /* background-color: #4a4a4a; */
+  background-color: transparent;
+  /* padding: 10px 15px; */
+  color: #b39274;
+  font-size: 15px;
+  font-weight: 700;
   margin: 0 auto;
+  text-align: center;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
   .face__card__button {

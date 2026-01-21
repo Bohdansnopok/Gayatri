@@ -41,18 +41,18 @@ export default function Oils() {
                 </div>
 
                 <h2>{product.name}</h2>
-                <h4>{product.mililitres} Мл</h4>
-                {/* <p>{product.description}</p> */}
-              </section>
-
-              <section>
-                <div className="face__card__price">{product.price} грн</div>
                 <button
                   className="face__detailsButton"
                   onClick={() => setSelectedProduct(product)}
                 >
                   Детальніше
                 </button>
+                <h4>{product.mililitres} Мл</h4>
+                {/* <p>{product.description}</p> */}
+              </section>
+
+              <section>
+                <div className="face__card__price">{product.price} грн</div>
                 <button
                   onClick={() => {
                     addToCart({

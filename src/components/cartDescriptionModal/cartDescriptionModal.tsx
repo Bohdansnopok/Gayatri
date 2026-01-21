@@ -8,7 +8,8 @@ type ModalProps = {
 
 export default function CartDescriptionModal({ product, onClose }: ModalProps) {
   return (
-    <div className="overlay" onClick={onClose}>
+    <div>
+      <div className="overlay" onClick={onClose}></div>
       <div
         className="CartDescriptionModal__content"
         onClick={(e) => e.stopPropagation()}
@@ -34,8 +35,6 @@ export default function CartDescriptionModal({ product, onClose }: ModalProps) {
             </p>
           </div>
         </div>
-
-        {/* Тут можна додати кнопку "Зберегти зміни" */}
       </div>
     </div>
   );

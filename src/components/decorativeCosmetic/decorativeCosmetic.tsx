@@ -40,11 +40,14 @@ export default function DecorativeCosmetic() {
                   />
                 </div>
 
-                  <h2>{product.name}</h2>
-                  <h4>{product.mililitres} Мл</h4>
-                  <button className="face__detailsButton" onClick={() => setSelectedProduct(product)}>
-                    Детальніше 
-                  </button>
+                <h2>{product.name}</h2>
+                <button
+                  className="face__detailsButton"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  Детальніше
+                </button>
+                <h4>{product.mililitres} Мл</h4>
               </section>
 
               <section>

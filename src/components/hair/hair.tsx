@@ -41,10 +41,13 @@ export default function DecorativeCosmetic() {
                 </div>
 
                 <h2>{product.name}</h2>
+                <button
+                  className="face__detailsButton"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  Детальніше
+                </button>
                 <h4>{product.mililitres} Мл</h4>
-                <button className="face__detailsButton" onClick={() => setSelectedProduct(product)}>
-                    Детальніше 
-                  </button>
               </section>
 
               <section>
@@ -67,11 +70,11 @@ export default function DecorativeCosmetic() {
         </div>
       </div>
       {selectedProduct && (
-              <CartDescriptionModal 
-                product={selectedProduct} 
-                onClose={() => setSelectedProduct(null)} 
-              />
-            )}
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   );
 }
