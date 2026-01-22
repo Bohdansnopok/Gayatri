@@ -39,6 +39,7 @@ type Store = {
   addProduct: (product: NewProduct, category: string) => Promise<Product>;
 
   deleteProduct: (id: string, category: string) => Promise<void>;
+  updateProduct: (id: string, category: string, updatedFields: Partial<Product>) => Promise<void>;
 };
 
 export const useProductStore = create<Store>((set, get) => ({
@@ -167,7 +168,88 @@ export const useProductStore = create<Store>((set, get) => ({
     }
   },
 
-  // src/store/productStore.ts
+  // Визначаємо асинхронну функцію, яка приймає ID продукту, категорію та об'єкт з новими даними
+  updateProduct: async (id: string, category: string, updatedFields: any) => {
+    try {
+      // Приводимо назву категорії до нижнього регістру для коректності URL
+      const categoryLower = category.toLowerCase();
+
+      console.log(`Updating product:`, {
+        id,
+        category: categoryLower,
+        updatedFields,
+      });
+
+      // Відправляємо запит PUT до нашого API.
+      // Передаємо заголовки, щоб сервер зрозумів, що ми шлемо JSON, та саме тіло запиту
+      const res = await fetch(`${API}/${categoryLower}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedFields),
+      });
+
+      // Перевіряємо статус відповіді (res.ok повертає true, якщо код 200-299)
+      if (!res.ok) {
+        if (res.status === 404) {
+          throw new Error(`Продукт для оновлення не знайдено (ID: ${id})`);
+        }
+        throw new Error(`Помилка при оновленні: ${res.status}`);
+      }
+
+      // Отримуємо оновлений об'єкт продукту, який повернув сервер
+      const updatedProductFromServer = await res.json();
+
+      // Логіка оновлення локального стейту залежно від категорії
+      switch (categoryLower) {
+        case "face":
+          // Використовуємо .map(): якщо ID збігається — замінюємо продукт на новий, інакше залишаємо старий
+          set((state) => ({
+            faceProducts: state.faceProducts.map((p) =>
+              p.id === id ? { ...p, ...updatedProductFromServer.product } : p,
+            ),
+          }));
+          break;
+        case "body":
+          set((state) => ({
+            bodyProducts: state.bodyProducts.map((p) =>
+              p.id === id ? { ...p, ...updatedProductFromServer.product } : p,
+            ),
+          }));
+          break;
+        case "hair":
+          set((state) => ({
+            hairProducts: state.hairProducts.map((p) =>
+              p.id === id ? { ...p, ...updatedProductFromServer.product } : p,
+            ),
+          }));
+          break;
+        case "decor":
+          set((state) => ({
+            decorProducts: state.decorProducts.map((p) =>
+              p.id === id ? { ...p, ...updatedProductFromServer.product } : p,
+            ),
+          }));
+          break;
+        case "oils":
+          set((state) => ({
+            oilsProducts: state.oilsProducts.map((p) =>
+              p.id === id ? { ...p, ...updatedProductFromServer.product } : p,
+            ),
+          }));
+          break;
+        default:
+          console.warn(`Невідома категорія для оновлення: ${category}`);
+      }
+
+      console.log(`Product ${id} updated successfully in ${category}`);
+    } catch (error: any) {
+      // Логуємо помилку для відладки та прокидаємо її далі для обробки в UI (наприклад, для сповіщень)
+      console.error("Error updating product:", error);
+      throw error;
+    }
+  },
 
   deleteProduct: async (id: string, category: string) => {
     try {
