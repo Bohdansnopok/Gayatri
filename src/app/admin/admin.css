@@ -34,7 +34,7 @@
   background-color: #4a4a4a;
   width: 300px;
   padding: 30px 20px;
-  height: -webkit-fill-available;
+  height: 100%;
   color: white;
 
   .admin__sidebar__link {
@@ -53,6 +53,7 @@
   padding-bottom: 50px;
   position: relative;
   padding-left: 350px;
+  height: 100%;
 }
 
 .admin__edit__card__image {
