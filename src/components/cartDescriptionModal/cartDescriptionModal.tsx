@@ -33,6 +33,10 @@ export default function CartDescriptionModal({ product, onClose }: ModalProps) {
             </p>
             <p>
               {" "}
+              <h2>мілілітри:</h2> {product.mililitres} Мл
+            </p>
+            <p>
+              {" "}
               <h2>Опис:</h2> {product.description}
             </p>
           </div>
