@@ -200,6 +200,17 @@
   border-radius: 20px;
   z-index: 999;
   width: 1200px;
+  overflow-y: scroll;
+  max-height: 80vh;
+}
+
+.editingModal__close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .editingModal__form {

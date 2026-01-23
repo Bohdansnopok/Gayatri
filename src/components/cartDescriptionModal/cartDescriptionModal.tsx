@@ -1,5 +1,6 @@
 import { Product } from "@/store/cartStore";
 import "./cartDescriptionModal.css";
+import { FaTimes } from "react-icons/fa";
 
 type ModalProps = {
   product: any;
@@ -14,6 +15,7 @@ export default function CartDescriptionModal({ product, onClose }: ModalProps) {
         className="CartDescriptionModal__content"
         onClick={(e) => e.stopPropagation()}
       >
+
         <button onClick={onClose} className="close-button">
           X
         </button>

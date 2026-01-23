@@ -5,12 +5,18 @@ import AdminSidebar from "../../admin-sidebar/page";
 import intensiveHydro from "../../../../public/intensiveGydrotation.jpg";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useProductStore } from "@/store/productStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import AdminEditModal from "../../adminEditModal/adminEditModal";
 
 export default function AdminDecor() {
   const { fetchDecorProducts, decorProducts, deleteProduct } =
     useProductStore();
+  const [editingProduct, setEditingProduct] = useState<any>(null);
+
+  const openEditModal = (product: any) => {
+    setEditingProduct({ ...product });
+  };
 
   useEffect(() => {
     fetchDecorProducts();
@@ -64,11 +70,26 @@ export default function AdminDecor() {
                 >
                   <FaTrash /> Видалити
                 </button>
+
+                <button
+                  onClick={() => openEditModal(decorProducts)}
+                  className="admin__edit__card__buttons__button"
+                >
+                  <FaEdit /> редагувати
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
+
+      {editingProduct && (
+        <AdminEditModal
+          editingProduct={editingProduct}
+          setEditingProduct={setEditingProduct}
+          category="decor"
+        />
+      )}
     </aside>
   );
 }

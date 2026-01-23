@@ -42,16 +42,16 @@ export default function Footer() {
           </a>
 
           <div className="footer__right__navs">
-            <Link href="">
+            <div>
               <i className="footer__right__navs__nav">
-                <a href="/copyright">Договір публічної оферти</a>
+                <Link href="/copyright">Договір публічної оферти</Link>
               </i>
-            </Link>
-            <Link href="">
+            </div>
+            <div>
               <i className="footer__right__navs__nav">
-                <a href="/privacyPolice">Політика конфіденційності</a>
+                <Link href="/privacyPolice">Політика конфіденційності</Link>
               </i>
-            </Link>
+            </div>
           </div>
 
           <div className="footer__right__allrights">All rights Reserved</div>
