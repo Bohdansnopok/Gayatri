@@ -40,7 +40,7 @@ export default function Footer() {
             ПОСТАВИТИ ПИТАННЯ
             <FaTelegram size={30} />
           </a>
-\
+
           <div className="footer__right__navs">
             <Link href="">
               <i className="footer__right__navs__nav">
