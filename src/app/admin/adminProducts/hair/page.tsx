@@ -8,10 +8,12 @@ import { useProductStore } from "@/store/productStore";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import AdminEditModal from "../../adminEditModal/adminEditModal";
+import CartDescriptionModal from "@/components/cartDescriptionModal/cartDescriptionModal";
 
 export default function AdminHair() {
   const { fetchHairProducts, hairProducts, deleteProduct } = useProductStore();
   const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
 
   const openEditModal = (product: any) => {
     setEditingProduct({ ...product });
@@ -52,9 +54,16 @@ export default function AdminHair() {
                 {hairProducts.mililitres} Мл
               </div>
 
-              <div className="admin__edit__card__description">
+              {/* <div className="admin__edit__card__description">
                 {hairProducts.description}
-              </div>
+              </div> */}
+
+              <button
+                className="face__detailsButton"
+                onClick={() => setSelectedProduct(hairProducts)}
+              >
+                Детальніше
+              </button>
 
               <div className="admin__edit__card__price">
                 {hairProducts.price}
@@ -85,6 +94,13 @@ export default function AdminHair() {
           editingProduct={editingProduct}
           setEditingProduct={setEditingProduct}
           category="hair"
+        />
+      )}
+
+      {selectedProduct && (
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
       )}
     </aside>

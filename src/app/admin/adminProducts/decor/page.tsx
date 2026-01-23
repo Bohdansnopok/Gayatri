@@ -8,11 +8,13 @@ import { useProductStore } from "@/store/productStore";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import AdminEditModal from "../../adminEditModal/adminEditModal";
+import CartDescriptionModal from "@/components/cartDescriptionModal/cartDescriptionModal";
 
 export default function AdminDecor() {
   const { fetchDecorProducts, decorProducts, deleteProduct } =
     useProductStore();
   const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
 
   const openEditModal = (product: any) => {
     setEditingProduct({ ...product });
@@ -55,9 +57,16 @@ export default function AdminDecor() {
                 {decorProducts.mililitres} Мл
               </div>
 
-              <div className="admin__edit__card__description">
+              {/* <div className="admin__edit__card__description">
                 {decorProducts.description}
-              </div>
+              </div> */}
+
+              <button
+                className="face__detailsButton"
+                onClick={() => setSelectedProduct(decorProducts)}
+              >
+                Детальніше
+              </button>
 
               <div className="admin__edit__card__price">
                 {decorProducts.price}
@@ -88,6 +97,13 @@ export default function AdminDecor() {
           editingProduct={editingProduct}
           setEditingProduct={setEditingProduct}
           category="decor"
+        />
+      )}
+      
+      {selectedProduct && (
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
       )}
     </aside>

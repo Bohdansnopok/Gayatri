@@ -8,10 +8,12 @@ import { useProductStore } from "@/store/productStore";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import AdminEditModal from "../../adminEditModal/adminEditModal";
+import CartDescriptionModal from "@/components/cartDescriptionModal/cartDescriptionModal";
 
 export default function AdminEdit() {
   const { fetchFaceProducts, faceProducts, deleteProduct } = useProductStore();
   const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
 
   const openEditModal = (product: any) => {
     setEditingProduct({ ...product });
@@ -53,9 +55,16 @@ export default function AdminEdit() {
                 {faceProducts.mililitres} Мл
               </div>
 
-              <div className="admin__edit__card__description">
+              {/* <div className="admin__edit__card__description">
                 {faceProducts.description}
-              </div>
+              </div> */}
+
+              <button
+                className="face__detailsButton"
+                onClick={() => setSelectedProduct(faceProducts)}
+              >
+                Детальніше
+              </button>
 
               <div className="admin__edit__card__price">
                 {faceProducts.price}
@@ -86,6 +95,13 @@ export default function AdminEdit() {
           editingProduct={editingProduct}
           setEditingProduct={setEditingProduct}
           category="face"
+        />
+      )}
+
+      {selectedProduct && (
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
       )}
     </aside>

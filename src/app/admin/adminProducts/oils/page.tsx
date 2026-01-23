@@ -9,9 +9,11 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { close } from "fs";
 import AdminEditModal from "../../adminEditModal/adminEditModal";
+import CartDescriptionModal from "@/components/cartDescriptionModal/cartDescriptionModal";
 
 export default function AdminOils() {
   const [editingProduct, setEditingProduct] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
 
   const { fetchOilsProducts, oilsProducts, deleteProduct } = useProductStore();
 
@@ -52,9 +54,16 @@ export default function AdminOils() {
               <div className="admin__edit__card__mililitres">
                 {oilsProducts.mililitres} Мл
               </div>
-              <div className="admin__edit__card__description">
+              {/* <div className="admin__edit__card__description">
                 {oilsProducts.description}
-              </div>
+              </div> */}
+              <button
+                className="face__detailsButton"
+                onClick={() => setSelectedProduct(oilsProducts)}
+              >
+                Детальніше
+              </button>
+
               <div className="admin__edit__card__price">
                 {oilsProducts.price}
               </div>
@@ -83,6 +92,13 @@ export default function AdminOils() {
           editingProduct={editingProduct}
           setEditingProduct={setEditingProduct}
           category="oils"
+        />
+      )}
+
+      {selectedProduct && (
+        <CartDescriptionModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
         />
       )}
     </aside>

@@ -27,18 +27,18 @@ export default function CartDescriptionModal({ product, onClose }: ModalProps) {
           />
           <div className="CartDescriptionModal__content__right">
             <h2>{product.name}</h2>
-            <p>
+            <div>
               {" "}
               <h2>Ціна:</h2> {product.price} грн
-            </p>
-            <p>
+            </div>
+            <div>
               {" "}
               <h2>мілілітри:</h2> {product.mililitres} Мл
-            </p>
-            <p>
+            </div>
+            <div>
               {" "}
               <h2>Опис:</h2> {product.description}
-            </p>
+            </div>
           </div>
         </div>
       </div>
