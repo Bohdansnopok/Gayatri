@@ -1,23 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // domains — це застарілий метод, але для localhost можна залишити
-    domains: ['localhost'], 
     remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
       {
         protocol: 'https',
         hostname: 'gayatri-backend-dn3j.onrender.com',
-        port: '',
-        pathname: '/**', // Дозволяє всі шляхи
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'gayatri-backend.onrender.com',
-        port: '',
-        pathname: '/**', // Дозволяє всі шляхи
+        pathname: '/**',
       },
     ],
   },
+  // Якщо помилка RangeError не зникне, можна спробувати вимкнути деякі оптимізації
+  experimental: {
+    // reactCompiler: true, // у тебе є плагін у devDeps, можна увімкнути тут
+  }
 };
 
 module.exports = nextConfig;

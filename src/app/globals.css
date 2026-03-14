@@ -89,7 +89,7 @@ h3 {
 }
 
 .defaultButton:hover {
-  background-color: blue;
+  background-color: rgb(130, 51, 134);
 }
 
 @media (max-width: 1200px) {
@@ -270,3 +270,4 @@ h3 {
     display: none;
   }
 }
+

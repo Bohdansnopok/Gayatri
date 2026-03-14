@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import "./banner.css";
 
-// Імпортуємо картинки (або використовуй шляхи рядками)
 import slide1 from "../../../public/swiper-slide-2.jpg";
-import slide2 from '../../../public/slide-3.jpeg';
+import slide2 from "../../../public/slide-3.jpeg";
 import slide3 from "../../../public/swiper-slide1.jpg";
-
 
 const slides = [
   { id: 1, src: slide1, alt: "Косметика 1" },
@@ -19,7 +18,6 @@ const slides = [
 export default function Banner() {
   const [current, setCurrent] = useState(0);
 
-  // Автоперемикання (опціонально)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -30,7 +28,13 @@ export default function Banner() {
   return (
     <section className="banner">
       <div className="container">
-        <div className="banner__text">
+        <motion.div
+          className="banner__text"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <h1 className="banner__title">
             <i>
               Краса — це не тренд. <br /> Це стан.
@@ -49,10 +53,16 @@ export default function Banner() {
             </p>
             <p>Для шкіри, яка хоче виглядати живою — щодня.</p>
           </div>
-          <button className="defaultButton">Переглянути колекцію</button>
-        </div>
+          <a href="#collection" className="defaultButton">Переглянути колекцію</a>
+        </motion.div>
 
-        <div className="slider">
+        <motion.div
+          className="slider"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div className="slider__wrapper">
             {slides.map((slide, index) => (
               <div
@@ -70,7 +80,6 @@ export default function Banner() {
             ))}
           </div>
 
-          {/* Пагінація тепер поза межами slider__wrapper */}
           <div className="pagination">
             {slides.map((_, index) => (
               <button
@@ -80,7 +89,7 @@ export default function Banner() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -8,12 +8,20 @@ import heartIcon from "../../../public/heart.png";
 import wavesIcon from "../../../public/waves.svg";
 import paintsIcon from "../../../public/paints.svg";
 import { useProductStore } from "@/store/productStore";
+import { motion } from "framer-motion";
 
 export default function OurProducts() {
   const setOpenSection = useProductStore((state) => state.setOpenSection);
-  
+
   return (
-    <section className="ourProducts">
+    <motion.div
+      className="ourProducts"
+      id="collection"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="container">
         <h2>Наші продукти</h2>
 
@@ -21,9 +29,9 @@ export default function OurProducts() {
           <a
             href="#oils"
             className="ourProducts__cards__card "
-            onClick={() => setOpenSection('oils')}
+            onClick={() => setOpenSection("oils")}
           >
-            <div className="ourProducts__cards__card__icon">
+            <div className="ourProducts__cards__card__icon drop">
               <Image src={dropIcon} alt="" />
             </div>
             <div>
@@ -36,9 +44,9 @@ export default function OurProducts() {
           <a
             href="#face"
             className="ourProducts__cards__card"
-            onClick={() => setOpenSection('face')}
+            onClick={() => setOpenSection("face")}
           >
-            <div className="ourProducts__cards__card__icon">
+            <div className="ourProducts__cards__card__icon magic">
               <Image src={magicIcon} alt="" />
             </div>
             <div>
@@ -53,9 +61,9 @@ export default function OurProducts() {
           <a
             href="#body"
             className="ourProducts__cards__card"
-            onClick={() => setOpenSection('body')}
+            onClick={() => setOpenSection("body")}
           >
-            <div className="ourProducts__cards__card__icon">
+            <div className="ourProducts__cards__card__icon heart">
               <Image src={heartIcon} alt="" />
             </div>
             <div>
@@ -68,9 +76,9 @@ export default function OurProducts() {
           <a
             href="#hair"
             className="ourProducts__cards__card"
-            onClick={() => setOpenSection('hair')}
+            onClick={() => setOpenSection("hair")}
           >
-            <div className="ourProducts__cards__card__icon">
+            <div className="ourProducts__cards__card__icon waves">
               <Image src={wavesIcon} alt="" />
             </div>
             <div>
@@ -85,9 +93,9 @@ export default function OurProducts() {
           <a
             href="#decor"
             className="ourProducts__cards__card"
-            onClick={() => setOpenSection('decor')}
+            onClick={() => setOpenSection("decor")}
           >
-            <div className="ourProducts__cards__card__icon">
+            <div className="ourProducts__cards__card__icon paints">
               <Image src={paintsIcon} alt="" />
             </div>
             <div>
@@ -101,6 +109,6 @@ export default function OurProducts() {
           </a>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }

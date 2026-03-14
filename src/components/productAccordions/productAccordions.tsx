@@ -11,6 +11,7 @@ import arrow from "../../../public/arrow.svg";
 import { useEffect, useState } from "react";
 import { useCartStore } from "@/store/cartStore";
 import { useProductStore } from "@/store/productStore";
+import { motion } from "framer-motion";
 
 export default function ProductAccordion() {
   const addToCart = useCartStore((state) => state.addToCart);
@@ -29,7 +30,6 @@ export default function ProductAccordion() {
     decorProducts,
   } = useProductStore();
 
-
   useEffect(() => {
     fetchOilsProducts();
     fetchFaceProducts();
@@ -45,15 +45,28 @@ export default function ProductAccordion() {
   ]);
 
   return (
-    <section className="products-accrodion">
+    <motion.div
+      className="products-accrodion"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="container">
-        <div className="products-accrodion__item oils" id="oils">
+        <motion.div
+          className="products-accrodion__item oils"
+          id="oils"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button
-            onClick={() => toggleSection('oils')}
+            onClick={() => toggleSection("oils")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
-              <div className="ourProducts__cards__card__icon">
+              <div className="ourProducts__cards__card__icon drop">
                 <Image src={dropIcon} alt="Drop Icon" />
               </div>
               <h2>
@@ -79,7 +92,7 @@ export default function ProductAccordion() {
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
-                      <div className="price">{product.price}</div>
+                      <div className="price">{product.price} <span>₴</span></div>
                       <button
                         className="addToCart defaultButton"
                         onClick={() => addToCart(product)}
@@ -92,15 +105,22 @@ export default function ProductAccordion() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="products-accrodion__item face" id="face">
+        <motion.div
+          className="products-accrodion__item face"
+          id="face"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button
             onClick={() => toggleSection("face")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
-              <div className="ourProducts__cards__card__icon">
+              <div className="ourProducts__cards__card__icon magic">
                 <Image src={magicIcon} alt="Magic Icon" />
               </div>
               <h2>
@@ -126,7 +146,7 @@ export default function ProductAccordion() {
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
-                      <div className="price">{product.price}</div>
+                      <div className="price">{product.price} <span>₴</span></div>
                       <button
                         className="addToCart defaultButton"
                         onClick={() => addToCart(product)}
@@ -139,15 +159,22 @@ export default function ProductAccordion() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="products-accrodion__item body" id="body">
+        <motion.div
+          className="products-accrodion__item body"
+          id="body"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button
             onClick={() => toggleSection("body")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
-              <div className="ourProducts__cards__card__icon">
+              <div className="ourProducts__cards__card__icon magic">
                 <Image src={heartIcon} alt="Magic Icon" />
               </div>
               <h2>
@@ -173,7 +200,7 @@ export default function ProductAccordion() {
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
-                      <div className="price">{product.price}</div>
+                      <div className="price">{product.price} <span>₴</span></div>
                       <button
                         className="addToCart defaultButton"
                         onClick={() => addToCart(product)}
@@ -186,15 +213,22 @@ export default function ProductAccordion() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="products-accrodion__item hair" id="hair">
+        <motion.div
+          className="products-accrodion__item hair"
+          id="hair"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button
             onClick={() => toggleSection("hair")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
-              <div className="ourProducts__cards__card__icon">
+              <div className="ourProducts__cards__card__icon waves">
                 <Image src={wavesIcon} alt="Magic Icon" />
               </div>
               <h2>
@@ -220,7 +254,7 @@ export default function ProductAccordion() {
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
-                      <div className="price">{product.price}</div>
+                      <div className="price">{product.price} <span>₴</span></div>
                       <button
                         className="addToCart defaultButton"
                         onClick={() => addToCart(product)}
@@ -233,15 +267,22 @@ export default function ProductAccordion() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="products-accrodion__item decor" id="decor">
+        <motion.div
+          className="products-accrodion__item decor"
+          id="decor"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button
             onClick={() => toggleSection("decor")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
-              <div className="ourProducts__cards__card__icon">
+              <div className="ourProducts__cards__card__icon paints">
                 <Image src={paintsIcon} alt="Magic Icon" />
               </div>
               <h2>
@@ -267,7 +308,7 @@ export default function ProductAccordion() {
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
-                      <div className="price">{product.price}</div>
+                      <div className="price">{product.price} <span>₴</span></div>
                       <button
                         className="addToCart defaultButton"
                         onClick={() => addToCart(product)}
@@ -280,8 +321,8 @@ export default function ProductAccordion() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.div>
   );
 }
