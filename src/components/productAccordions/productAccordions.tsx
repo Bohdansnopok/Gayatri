@@ -3,7 +3,10 @@
 import Image from "next/image";
 import "./productAccordions.css";
 import dropIcon from "../../../public/drop.svg";
-import cardBg from "../../../public/product-card-bg.jpg";
+import magicIcon from "../../../public/magic.svg";
+import heartIcon from "../../../public/heart.png";
+import wavesIcon from "../../../public/waves.svg";
+import paintsIcon from "../../../public/paints.svg";
 import arrow from "../../../public/arrow.svg";
 import { useEffect, useState } from "react";
 import { useCartStore } from "@/store/cartStore";
@@ -11,57 +14,55 @@ import { useProductStore } from "@/store/productStore";
 
 export default function ProductAccordion() {
   const addToCart = useCartStore((state) => state.addToCart);
-  const { fetchOilsProducts, oilsProducts } = useProductStore();
+  const { fetchOilsProducts, oilsProducts, fetchFaceProducts, faceProducts, fetchBodyProducts, bodyProducts, fetchHairProducts, hairProducts, fetchDecorProducts, decorProducts } = useProductStore();
   
+  const [openSection, setOpenSection] = useState(null);
+
   useEffect(() => {
     fetchOilsProducts();
-  }, [fetchOilsProducts]); 
+    fetchFaceProducts();
+    fetchBodyProducts();
+    fetchHairProducts();
+    fetchDecorProducts();
+  }, [fetchOilsProducts, fetchFaceProducts, fetchBodyProducts, fetchHairProducts, fetchDecorProducts]); 
 
-  const [accordionOpen, setAccordionOpen] = useState(false);
-
-  const accordionToggle = () => {
-    setAccordionOpen((prev) => !prev);
+  const toggleSection = (sectionName) => {
+    setOpenSection(prev => prev === sectionName ? null : sectionName);
   };
 
   return (
     <section className="products-accrodion">
       <div className="container">
+        
         <div className="products-accrodion__item oils">
           <button
-            onClick={accordionToggle}
+            onClick={() => toggleSection('oils')} 
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={dropIcon} alt="Drop Icon" />
               </div>
-              <h2>
-                <strong>Ефірні олії</strong>
-              </h2>
+              <h2><strong>Ефірні олії</strong></h2>
             </div>
             <Image 
               src={arrow} 
               alt="Arrow" 
-              className={`arrow ${accordionOpen ? "active" : ""}`} 
+              className={`arrow ${openSection === 'oils' ? "active" : ""}`} 
             />
           </button>
 
-          {accordionOpen && (
+          {openSection === 'oils' && (
             <div className="products-accrodion__item__content active">
               {oilsProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt="Product Background" width={443} height={567}/>
+                  <img src={product.image} alt={product.name} width={443} height={567}/>
                   <div className="products-accrodion__item__content__card__info">
-                    <h3>{product.name || "Ефірні олії"}</h3>
+                    <h3>{product.name}</h3>
                     <div className="subtitle">Природна сила ароматів</div>
                     <div className="flex-wrapp">
-                      <div className="price">
-                        {product.price}
-                      </div>
-                      <button 
-                        className="addToCart defaultButton"
-                        onClick={() => addToCart(product)}
-                      >
+                      <div className="price">{product.price}</div>
+                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
                         Додати до кошика
                       </button>
                     </div>
@@ -71,6 +72,163 @@ export default function ProductAccordion() {
             </div>
           )}
         </div>
+
+        <div className="products-accrodion__item face">
+          <button
+            onClick={() => toggleSection('face')} 
+            className="products-accrodion__button"
+          >
+            <div className="icon-title-wrapp">
+              <div className="ourProducts__cards__card__icon">
+                <Image src={magicIcon} alt="Magic Icon" />
+              </div>
+              <h2><strong>Догляд за обличчям</strong></h2>
+            </div>
+            <Image 
+              src={arrow} 
+              alt="Arrow" 
+              className={`arrow ${openSection === 'face' ? "active" : ""}`} 
+            />
+          </button>
+
+          {openSection === 'face' && (
+            <div className="products-accrodion__item__content active">
+              {faceProducts.map((product) => (
+                <div key={product.id} className="products-accrodion__item__content__card">
+                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <div className="products-accrodion__item__content__card__info">
+                    <h3>{product.name}</h3>
+                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="flex-wrapp">
+                      <div className="price">{product.price}</div>
+                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                        Додати до кошика
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="products-accrodion__item body">
+          <button
+            onClick={() => toggleSection('body')} 
+            className="products-accrodion__button"
+          >
+            <div className="icon-title-wrapp">
+              <div className="ourProducts__cards__card__icon">
+                <Image src={heartIcon} alt="Magic Icon" />
+              </div>
+              <h2><strong>Догляд за тілом</strong></h2>
+            </div>
+            <Image 
+              src={arrow} 
+              alt="Arrow" 
+              className={`arrow ${openSection === 'body' ? "active" : ""}`} 
+            />
+          </button>
+
+          {openSection === 'body' && (
+            <div className="products-accrodion__item__content active">
+              {bodyProducts.map((product) => (
+                <div key={product.id} className="products-accrodion__item__content__card">
+                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <div className="products-accrodion__item__content__card__info">
+                    <h3>{product.name}</h3>
+                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="flex-wrapp">
+                      <div className="price">{product.price}</div>
+                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                        Додати до кошика
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="products-accrodion__item hair">
+          <button
+            onClick={() => toggleSection('hair')} 
+            className="products-accrodion__button"
+          >
+            <div className="icon-title-wrapp">
+              <div className="ourProducts__cards__card__icon">
+                <Image src={wavesIcon} alt="Magic Icon" />
+              </div>
+              <h2><strong>Догляд за волоссям</strong></h2>
+            </div>
+            <Image 
+              src={arrow} 
+              alt="Arrow" 
+              className={`arrow ${openSection === 'hair' ? "active" : ""}`} 
+            />
+          </button>
+
+          {openSection === 'hair' && (
+            <div className="products-accrodion__item__content active">
+              {hairProducts.map((product) => (
+                <div key={product.id} className="products-accrodion__item__content__card">
+                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <div className="products-accrodion__item__content__card__info">
+                    <h3>{product.name}</h3>
+                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="flex-wrapp">
+                      <div className="price">{product.price}</div>
+                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                        Додати до кошика
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="products-accrodion__item decor">
+          <button
+            onClick={() => toggleSection('decor')} 
+            className="products-accrodion__button"
+          >
+            <div className="icon-title-wrapp">
+              <div className="ourProducts__cards__card__icon">
+                <Image src={paintsIcon} alt="Magic Icon" />
+              </div>
+              <h2><strong>Декоративна косметика</strong></h2>
+            </div>
+            <Image 
+              src={arrow} 
+              alt="Arrow" 
+              className={`arrow ${openSection === 'decor' ? "active" : ""}`} 
+            />
+          </button>
+
+          {openSection === 'decor' && (
+            <div className="products-accrodion__item__content active">
+              {decorProducts.map((product) => (
+                <div key={product.id} className="products-accrodion__item__content__card">
+                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <div className="products-accrodion__item__content__card__info">
+                    <h3>{product.name}</h3>
+                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="flex-wrapp">
+                      <div className="price">{product.price}</div>
+                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                        Додати до кошика
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
       </div>
     </section>
   );
