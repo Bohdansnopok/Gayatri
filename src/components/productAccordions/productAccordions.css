@@ -1,0 +1,97 @@
+.products-accrodion {
+  padding: 80px 0 95px 0;
+  width: 100%;
+
+  .products-accrodion__item {
+    width: 100%;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
+  }
+
+  .products-accrodion__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 24px 0;
+
+    h2 {
+      flex-grow: 1;
+      margin-left: 15px;
+    }
+
+    .icon-title-wrapp {
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
+  }
+
+  .products-accrodion__item__content {
+    display: none;
+  }
+
+  .products-accrodion__item__content.active {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .products-accrodion__item__content__card {
+    width: 443px;
+    height: 567px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+
+    h3 {
+      font-weight: 500;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #4A5565;
+    }
+
+    .flex-wrapp {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 600;
+      font-family: "Playfair Display", serif;
+    }
+
+    .addToCart {
+      background: transparent;
+      color: #f6339a;
+      border: 1px solid #f6339a;
+      cursor: pointer;
+      transition: 0.3s transform;
+    }
+
+    .addToCart:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .products-accrodion__item__content__card__info {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    padding: 48px 24px 24px 24px;
+  }
+}

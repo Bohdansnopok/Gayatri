@@ -2,7 +2,7 @@ import Image from "next/image";
 import "./ourProducts.css";
 import dropIcon from "../../../public/drop.svg";
 import magicIcon from "../../../public/magic.svg";
-import heartIcon from "../../../public/heart.svg";
+import heartIcon from "../../../public/heart.png";
 import wavesIcon from "../../../public/waves.svg";
 import paintsIcon from "../../../public/paints.svg";
 
@@ -26,45 +26,45 @@ export default function OurProducts() {
           </a>
           <a href="#" className="ourProducts__cards__card">
             <div className="ourProducts__cards__card__icon">
-              <Image src={dropIcon} alt="" />
+              <Image src={magicIcon} alt="" />
             </div>
             <div>
-              <h3>Ефірні олії</h3>
+              <h3>Догляд за <br /> обличчям</h3>
               <div className="ourProducts__cards__card__subtitle">
-                Природна сила ароматів
+                Сяюча і здорова шкіра
               </div>
             </div>
           </a>
           <a href="#" className="ourProducts__cards__card">
             <div className="ourProducts__cards__card__icon">
-              <Image src={dropIcon} alt="" />
+              <Image src={heartIcon} alt="" />
             </div>
             <div>
-              <h3>Ефірні олії</h3>
+              <h3>Догляд за тілом</h3>
               <div className="ourProducts__cards__card__subtitle">
-                Природна сила ароматів
+                М'якість і ніжність
               </div>
             </div>
           </a>
           <a  href="#" className="ourProducts__cards__card">
             <div className="ourProducts__cards__card__icon">
-              <Image src={dropIcon} alt="" />
+              <Image src={wavesIcon} alt="" />
             </div>
             <div>
-              <h3>Ефірні олії</h3>
+              <h3>Догляд за <br /> волоссям</h3>
               <div className="ourProducts__cards__card__subtitle">
-                Природна сила ароматів
+                Сила та блиск
               </div>
             </div>
           </a>
           <a  href="#" className="ourProducts__cards__card">
             <div className="ourProducts__cards__card__icon">
-              <Image src={dropIcon} alt="" />
+              <Image src={paintsIcon} alt="" />
             </div>
             <div>
-              <h3>Ефірні олії</h3>
+              <h3>Декоративна <br /> косметика</h3>
               <div className="ourProducts__cards__card__subtitle">
-                Природна сила ароматів
+                Виразіть себе
               </div>
             </div>
           </a>
