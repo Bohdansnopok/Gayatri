@@ -23,14 +23,14 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 24px;
-  transition: all .3s;
   transition: transform 0.3s ease;
 }
 
-.ourProducts__cards__card:hover {
-  transform: translateY(-10px);
+@media (hover: hover) and (pointer: fine) {
+  .ourProducts__cards__card:hover {
+    transform: translateY(-10px);
+  }
 }
-
 
 .ourProducts__cards__card__icon {
   background-color: #00b8db;
@@ -71,4 +71,18 @@
 .ourProducts__cards__card:nth-child(5) {
   background-image: url(../../../public/decoration-card-bg.jpg);
   background-size: cover;
+}
+
+@media (max-width: 1250px) {
+  .ourProducts__cards {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ourProducts__cards > * {
+    flex: 0 0 224px;
+  }
 }

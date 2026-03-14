@@ -48,11 +48,6 @@
     .header__logo__wrapper {
       gap: 0;
       top: 0;
-
-      .header__logo {
-        height: 120px;
-        width: 120px;
-      }
     }
 
     .header__navs {
@@ -67,9 +62,6 @@
 
 @media (max-width: 760px) {
   .header {
-    display: flex;
-    justify-content: center;
-
     .container {
       padding: 0;
     }

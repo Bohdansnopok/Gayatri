@@ -54,3 +54,16 @@
     color: blueviolet;
   }
 }
+
+@media (max-width: 600px) {
+  .footer {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+  .footer__right {
+  align-items: center ;
+}
+}

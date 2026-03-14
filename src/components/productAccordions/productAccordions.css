@@ -14,8 +14,8 @@
     padding-bottom: 15px;
 
     button {
-        border: none;
-        background-color: transparent;
+      border: none;
+      background-color: transparent;
     }
   }
 
@@ -37,9 +37,9 @@
     }
 
     .icon-title-wrapp {
-        display: flex;
-        align-items: center;
-        gap: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
     }
   }
 
@@ -70,7 +70,7 @@
       margin-top: 4px;
       margin-bottom: 16px;
       font-size: 14px;
-      color: #4A5565;
+      color: #4a5565;
     }
 
     .flex-wrapp {
@@ -103,5 +103,34 @@
     background-color: #fff;
     width: 100%;
     padding: 48px 24px 24px 24px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .products-accrodion {
+    .products-accrodion__item__content.active {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .products-accrodion__item__content__card {
+      width: 100%;
+      border-radius: 24px;
+      img {
+        width: 100%;
+      border-radius: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .products-accrodion {
+    .products-accrodion__item__content.active {
+      grid-template-columns: 1fr;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
   }
 }

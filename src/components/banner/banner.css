@@ -14,6 +14,10 @@
   font-family: "Playfair Display", serif;
 }
 
+.banner__title.mobile {
+  display: none;
+}
+
 .banner__subtitle {
   margin: 24px 0;
   font-size: 18px;
@@ -34,7 +38,7 @@
 .slider {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центруємо вміст */
+  align-items: center;
   width: 100%;
   max-width: 565px;
 }
@@ -42,10 +46,10 @@
 .slider__wrapper {
   position: relative;
   width: 100%;
-  height: 383px; /* Висота тільки для фото */
+  height: 383px;
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 20px; /* Відступ між фото та точками */
+  margin-bottom: 20px;
 }
 
 .slider__item {
@@ -63,10 +67,9 @@
   object-fit: cover;
 }
 
-/* Пагінація */
 .pagination {
-  position: static; /* Прибираємо absolute */
-  transform: none;  /* Прибираємо центрування через transform */
+  position: static;
+  transform: none;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -85,7 +88,56 @@
   padding: 0;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .pagination__dot:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
 .pagination__dot.active {
   width: 30px;
   background: #1a1a1a;
+}
+
+@media (max-width: 1250px) {
+  .banner {
+    .container {
+      flex-direction: column;
+      align-items: start;
+    }
+    .banner__title {
+      display: none;
+    }
+
+    .banner__title.mobile {
+      display: block;
+    }
+  }
+
+  .slider {
+    width: 100%;
+    height: auto;
+    max-width: unset;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .banner__subtitle {
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    gap: 8px;
+  }
+
+  .banner {
+  padding: 23px 0 91px 0;
+
+    .defaultButton {
+      width: 100%;
+      padding: 16px 10px;
+      border-radius: 40px;
+      margin-bottom: 30px;
+    }
+  }
 }
