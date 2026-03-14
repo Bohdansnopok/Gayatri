@@ -8,11 +8,13 @@ import DecorativeCosmetic from "@/components/decorativeCosmetic/decorativeCosmet
 import { Product } from "@/store/cartStore";
 import Oils from "@/components/oils/oils";
 import Banner from "@/components/banner/banner";
+import OurProducts from "@/components/ourProducts/ourProducts";
 
 export default function Home() {
   return (
     <main>
       <Banner />
+      <OurProducts />
       {/* <EssentialOils />
       <Oils />
       <Face />
