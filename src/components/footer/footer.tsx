@@ -2,59 +2,31 @@ import Image from "next/image";
 import "./footer.css";
 import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa6";
 import Link from "next/link";
+import instagram from "../../../public/instagram.svg";
+import telegram from "../../../public/telegram.svg";
+import facebook from "../../../public/facebook.svg";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__left">
-          <div className="footer__left__logo">Gayatri</div>
-
-          <div className="footer__left__socials">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram
-                size={30}
-                className="footer__left__socials__social"
-              />
-            </a>
-
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer">
-              <FaTelegram size={30} className="footer__left__socials__social" />
-            </a>
-
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaYoutube size={30} className="footer__left__socials__social" />
-            </a>
-          </div>
+          <div className="logo">Gayatri</div>
+          <div className="right-deserved footer__copyright">© All rights Reserved</div>
         </div>
         <div className="footer__right">
-          <a href="https://t.me" className="footer__right__reqQuestion">
-            ПОСТАВИТИ ПИТАННЯ
-            <FaTelegram size={30} />
-          </a>
-
-          <div className="footer__right__navs">
-            <div>
-              <i className="footer__right__navs__nav">
-                <Link href="/copyright">Договір публічної оферти</Link>
-              </i>
-            </div>
-            <div>
-              <i className="footer__right__navs__nav">
-                <Link href="/privacyPolice">Політика конфіденційності</Link>
-              </i>
-            </div>
+          <div className="socials">
+            <Image src={instagram} alt="" className="socials__social" />
+            <Image src={telegram} alt="" className="socials__social" />
+            <Image src={facebook} alt="" className="socials__social" />
           </div>
 
-          <div className="footer__right__allrights">All rights Reserved</div>
+          <a href="/copyright" className="public-offer-agreement footer__copyright">
+            Договір публічної оферти
+          </a>
+          <a href="/copyright" className="privacy-policy footer__copyright">
+            Політика конфіденційності
+          </a>
         </div>
       </div>
     </footer>

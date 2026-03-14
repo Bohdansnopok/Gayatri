@@ -7,16 +7,18 @@ import Hair from "@/components/hair/hair";
 import DecorativeCosmetic from "@/components/decorativeCosmetic/decorativeCosmetic";
 import { Product } from "@/store/cartStore";
 import Oils from "@/components/oils/oils";
+import Banner from "@/components/banner/banner";
 
 export default function Home() {
   return (
     <main>
-      <EssentialOils />
+      <Banner />
+      {/* <EssentialOils />
       <Oils />
       <Face />
       <Skin />
       <Hair />
-      <DecorativeCosmetic />
+      <DecorativeCosmetic /> */}
     </main>
   );
 }

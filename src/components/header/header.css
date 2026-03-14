@@ -2,17 +2,17 @@
   .container {
     display: flex;
     align-items: center;
-    /* padding-right: 160px; */
+    justify-content: space-between;
     position: relative;
-    padding: 50px 0;
   }
+
+  padding: 16px 32px;
+  border-bottom: 1px solid #e5e7eb;
 
   .header__logo__wrapper {
     display: flex;
     align-items: center;
     gap: 20px;
-    position: absolute;
-    top: 10px;
   }
 
   .header__navs {

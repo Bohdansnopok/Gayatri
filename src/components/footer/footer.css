@@ -1,106 +1,56 @@
 .footer {
-  background-color: #FCE2CE;
-  padding: 50px 0;
-  color: #4A4A4A;
-
   .container {
     display: flex;
     align-items: start;
     justify-content: space-between;
   }
 
+  padding-bottom: 75px;
+
   .footer__left {
+    height: 85px;
     display: flex;
     flex-direction: column;
-    text-transform: uppercase;
-    letter-spacing: 1.5;
-    font-weight: 900;
-    gap: 20px;
+    justify-content: space-between;
   }
 
-  .footer__left__logo {
-    font-size: 40px;
+  .logo {
+    font-size: 48px;
+    font-weight: 500;
   }
 
-  .footer__left__socials {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    a {
-      color: #4A4A4A;
-    }
-  }
-
-  .footer__right {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: right;
-
-    .footer__right__reqQuestion {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      align-self: flex-end;
-      color: #4A4A4A;
-      font-size: 13px;
-    }
-
-    .footer__right__reqQuestion:hover {
-      text-decoration: dashed;
-    }
-
-    .footer__right__navs {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .footer__right__navs__nav {
-        a {
-          text-decoration: none;
-          color: #4A4A4A;
-          font-size: 10px;
-        }
-      }
-    }
-
-    .footer__right__allrights {
-      font-size: 10px;
-    }
+  .footer__copyright {
+    font-size: 14px;
+    color: #4a5565;
   }
 }
 
-@media (max-width: 760px) {
-  .footer {
-    .container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 30px;
-    }
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 
-    .footer__left__logo {
-      font-size: 30px;
-    }
-    .footer__left__socials {
-      justify-content: center;
-      width: 100%;
+  .socials {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 
-      .footer__left__socials__social {
-        height: 30px;
-        width: 30px;
-      }
-    }
+  .socials__social {
+    transition: all 0.5s;
+  }
 
-    .footer__right {
-      text-align: center;
-      gap: 20px;
-      
-      .footer__right__reqQuestion {
-        align-self: center;
-        font-size: 15px;
-      }
-    }
+  .socials__social:hover {
+    transform: scale(1.2);
+  }
+
+  a {
+    transition: 0.3s color;
+  }
+
+  a:hover {
+    color: blueviolet;
   }
 }

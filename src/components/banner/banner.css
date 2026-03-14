@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+.banner {
+  padding: 73px 32px 140px 32px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.banner__title {
+  font-family: "Playfair Display", serif;
+}
+
+.banner__subtitle {
+  margin: 24px 0;
+  font-size: 18px;
+  color: #4a5565;
+}
+
+.banner {
+  padding: 60px 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо вміст */
+  width: 100%;
+  max-width: 565px;
+}
+
+.slider__wrapper {
+  position: relative;
+  width: 100%;
+  height: 383px; /* Висота тільки для фото */
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px; /* Відступ між фото та точками */
+}
+
+.slider__item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slider__item.active {
+  opacity: 1;
+}
+
+.slider__image {
+  object-fit: cover;
+}
+
+/* Пагінація */
+.pagination {
+  position: static; /* Прибираємо absolute */
+  transform: none;  /* Прибираємо центрування через transform */
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+  width: 100%;
+}
+
+.pagination__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.pagination__dot.active {
+  width: 30px;
+  background: #1a1a1a;
+}

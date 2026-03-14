@@ -1,12 +1,8 @@
 .cartOpenButton {
-  background-color: #f2f2f2;
-  padding: 20px;
+  padding: 10px;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
-  position: fixed;
-  top: 25px;
-  right: 20px;
+  background-color: transparent;
 
   span {
     position: absolute;

@@ -4,20 +4,21 @@
 body {
   font-size: 20px;
   letter-spacing: 1.1;
-  color: #4a4a4a;
+  color: #101828;
   font-family: "Lato", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
 
 main {
-  flex: 1; 
+  flex: 1;
 }
 
 * {
@@ -27,7 +28,7 @@ main {
 }
 
 .container {
-  max-width: 1160px;
+  max-width: 1375px;
   margin: 0 auto;
 }
 
@@ -44,36 +45,40 @@ a {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 60px;
   font-weight: 700;
   font-family: "Cormorant", serif;
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 36px;
   font-family: "Cormorant", serif;
 }
 
 @media (max-width: 760px) {
+  h1 {
+    font-size: 32px;
+  }
+
   h2 {
-    font-size: 15px;
+    font-size: 36px;
   }
 }
 
 .defaultButton {
-  background-color: transparent;
+  background-color: #F6339A;
   border: 1px solid #4a4a4a;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
   transition: background-color 0.3s;
-  padding: 10px 15px;
-  color: #4a4a4a;
+  padding: 12px 30px;
+  color: white;
   display: inline-block;
 }
 
 .defaultButton:hover {
-  background-color: lightgray;
+  background-color: blue;
 }
 
 @media (max-width: 1200px) {
@@ -91,11 +96,11 @@ h2 {
 }
 
 .face__card__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
 
 .face {
   .container {
@@ -154,20 +159,20 @@ h2 {
     border-top-left-radius: 50px;
   }
 
-.face__detailsButton {
-  max-width: 100px;
-  border: none;
-  /* background-color: #4a4a4a; */
-  background-color: transparent;
-  /* padding: 10px 15px; */
-  color: #b39274;
-  font-size: 15px;
-  font-weight: 700;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
+  .face__detailsButton {
+    max-width: 100px;
+    border: none;
+    /* background-color: #4a4a4a; */
+    background-color: transparent;
+    /* padding: 10px 15px; */
+    color: #b39274;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
 
   .face__card__button {
     margin: 0 auto;
