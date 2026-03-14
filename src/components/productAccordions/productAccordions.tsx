@@ -14,9 +14,21 @@ import { useProductStore } from "@/store/productStore";
 
 export default function ProductAccordion() {
   const addToCart = useCartStore((state) => state.addToCart);
-  const { fetchOilsProducts, oilsProducts, fetchFaceProducts, faceProducts, fetchBodyProducts, bodyProducts, fetchHairProducts, hairProducts, fetchDecorProducts, decorProducts } = useProductStore();
-  
-  const [openSection, setOpenSection] = useState(null);
+  const {
+    openSection,
+    toggleSection,
+    fetchOilsProducts,
+    oilsProducts,
+    fetchFaceProducts,
+    faceProducts,
+    fetchBodyProducts,
+    bodyProducts,
+    fetchHairProducts,
+    hairProducts,
+    fetchDecorProducts,
+    decorProducts,
+  } = useProductStore();
+
 
   useEffect(() => {
     fetchOilsProducts();
@@ -24,45 +36,54 @@ export default function ProductAccordion() {
     fetchBodyProducts();
     fetchHairProducts();
     fetchDecorProducts();
-  }, [fetchOilsProducts, fetchFaceProducts, fetchBodyProducts, fetchHairProducts, fetchDecorProducts]); 
-
-  const toggleSection = (sectionName) => {
-    setOpenSection(prev => prev === sectionName ? null : sectionName);
-  };
+  }, [
+    fetchOilsProducts,
+    fetchFaceProducts,
+    fetchBodyProducts,
+    fetchHairProducts,
+    fetchDecorProducts,
+  ]);
 
   return (
     <section className="products-accrodion">
       <div className="container">
-        
-        <div className="products-accrodion__item oils">
+        <div className="products-accrodion__item oils" id="oils">
           <button
-            onClick={() => toggleSection('oils')} 
+            onClick={() => toggleSection('oils')}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={dropIcon} alt="Drop Icon" />
               </div>
-              <h2><strong>Ефірні олії</strong></h2>
+              <h2>
+                <strong>Ефірні олії</strong>
+              </h2>
             </div>
-            <Image 
-              src={arrow} 
-              alt="Arrow" 
-              className={`arrow ${openSection === 'oils' ? "active" : ""}`} 
+            <Image
+              src={arrow}
+              alt="Arrow"
+              className={`arrow ${openSection === "oils" ? "active" : ""}`}
             />
           </button>
 
-          {openSection === 'oils' && (
+          {openSection === "oils" && (
             <div className="products-accrodion__item__content active">
               {oilsProducts.map((product) => (
-                <div key={product.id} className="products-accrodion__item__content__card">
+                <div
+                  key={product.id}
+                  className="products-accrodion__item__content__card"
+                >
                   <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
-                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                      <button
+                        className="addToCart defaultButton"
+                        onClick={() => addToCart(product)}
+                      >
                         Додати до кошика
                       </button>
                     </div>
@@ -73,35 +94,43 @@ export default function ProductAccordion() {
           )}
         </div>
 
-        <div className="products-accrodion__item face">
+        <div className="products-accrodion__item face" id="face">
           <button
-            onClick={() => toggleSection('face')} 
+            onClick={() => toggleSection("face")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={magicIcon} alt="Magic Icon" />
               </div>
-              <h2><strong>Догляд за обличчям</strong></h2>
+              <h2>
+                <strong>Догляд за обличчям</strong>
+              </h2>
             </div>
-            <Image 
-              src={arrow} 
-              alt="Arrow" 
-              className={`arrow ${openSection === 'face' ? "active" : ""}`} 
+            <Image
+              src={arrow}
+              alt="Arrow"
+              className={`arrow ${openSection === "face" ? "active" : ""}`}
             />
           </button>
 
-          {openSection === 'face' && (
+          {openSection === "face" && (
             <div className="products-accrodion__item__content active">
               {faceProducts.map((product) => (
-                <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name}/>
+                <div
+                  key={product.id}
+                  className="products-accrodion__item__content__card"
+                >
+                  <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
-                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                      <button
+                        className="addToCart defaultButton"
+                        onClick={() => addToCart(product)}
+                      >
                         Додати до кошика
                       </button>
                     </div>
@@ -112,35 +141,43 @@ export default function ProductAccordion() {
           )}
         </div>
 
-        <div className="products-accrodion__item body">
+        <div className="products-accrodion__item body" id="body">
           <button
-            onClick={() => toggleSection('body')} 
+            onClick={() => toggleSection("body")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={heartIcon} alt="Magic Icon" />
               </div>
-              <h2><strong>Догляд за тілом</strong></h2>
+              <h2>
+                <strong>Догляд за тілом</strong>
+              </h2>
             </div>
-            <Image 
-              src={arrow} 
-              alt="Arrow" 
-              className={`arrow ${openSection === 'body' ? "active" : ""}`} 
+            <Image
+              src={arrow}
+              alt="Arrow"
+              className={`arrow ${openSection === "body" ? "active" : ""}`}
             />
           </button>
 
-          {openSection === 'body' && (
+          {openSection === "body" && (
             <div className="products-accrodion__item__content active">
               {bodyProducts.map((product) => (
-                <div key={product.id} className="products-accrodion__item__content__card">
+                <div
+                  key={product.id}
+                  className="products-accrodion__item__content__card"
+                >
                   <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
-                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                      <button
+                        className="addToCart defaultButton"
+                        onClick={() => addToCart(product)}
+                      >
                         Додати до кошика
                       </button>
                     </div>
@@ -151,35 +188,43 @@ export default function ProductAccordion() {
           )}
         </div>
 
-        <div className="products-accrodion__item hair">
+        <div className="products-accrodion__item hair" id="hair">
           <button
-            onClick={() => toggleSection('hair')} 
+            onClick={() => toggleSection("hair")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={wavesIcon} alt="Magic Icon" />
               </div>
-              <h2><strong>Догляд за волоссям</strong></h2>
+              <h2>
+                <strong>Догляд за волоссям</strong>
+              </h2>
             </div>
-            <Image 
-              src={arrow} 
-              alt="Arrow" 
-              className={`arrow ${openSection === 'hair' ? "active" : ""}`} 
+            <Image
+              src={arrow}
+              alt="Arrow"
+              className={`arrow ${openSection === "hair" ? "active" : ""}`}
             />
           </button>
 
-          {openSection === 'hair' && (
+          {openSection === "hair" && (
             <div className="products-accrodion__item__content active">
               {hairProducts.map((product) => (
-                <div key={product.id} className="products-accrodion__item__content__card">
+                <div
+                  key={product.id}
+                  className="products-accrodion__item__content__card"
+                >
                   <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
-                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                      <button
+                        className="addToCart defaultButton"
+                        onClick={() => addToCart(product)}
+                      >
                         Додати до кошика
                       </button>
                     </div>
@@ -190,35 +235,43 @@ export default function ProductAccordion() {
           )}
         </div>
 
-        <div className="products-accrodion__item decor">
+        <div className="products-accrodion__item decor" id="decor">
           <button
-            onClick={() => toggleSection('decor')} 
+            onClick={() => toggleSection("decor")}
             className="products-accrodion__button"
           >
             <div className="icon-title-wrapp">
               <div className="ourProducts__cards__card__icon">
                 <Image src={paintsIcon} alt="Magic Icon" />
               </div>
-              <h2><strong>Декоративна косметика</strong></h2>
+              <h2>
+                <strong>Декоративна косметика</strong>
+              </h2>
             </div>
-            <Image 
-              src={arrow} 
-              alt="Arrow" 
-              className={`arrow ${openSection === 'decor' ? "active" : ""}`} 
+            <Image
+              src={arrow}
+              alt="Arrow"
+              className={`arrow ${openSection === "decor" ? "active" : ""}`}
             />
           </button>
 
-          {openSection === 'decor' && (
+          {openSection === "decor" && (
             <div className="products-accrodion__item__content active">
               {decorProducts.map((product) => (
-                <div key={product.id} className="products-accrodion__item__content__card">
+                <div
+                  key={product.id}
+                  className="products-accrodion__item__content__card"
+                >
                   <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
                     <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
-                      <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
+                      <button
+                        className="addToCart defaultButton"
+                        onClick={() => addToCart(product)}
+                      >
                         Додати до кошика
                       </button>
                     </div>
@@ -228,7 +281,6 @@ export default function ProductAccordion() {
             </div>
           )}
         </div>
-
       </div>
     </section>
   );

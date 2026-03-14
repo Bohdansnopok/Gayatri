@@ -40,6 +40,10 @@ type Store = {
 
   deleteProduct: (id: string, category: string) => Promise<void>;
   updateProduct: (id: string, category: string, updatedFields: Partial<Product>) => Promise<void>;
+
+  openSection: string | null;
+  setOpenSection: (section: string | null) => void;
+  toggleSection: (section: string | null) => void;
 };
 
 export const useProductStore = create<Store>((set, get) => ({
@@ -326,4 +330,10 @@ export const useProductStore = create<Store>((set, get) => ({
       throw error;
     }
   },
+
+  openSection: null, 
+  setOpenSection: (section) => set({ openSection: section }),
+  toggleSection: (section: string | null) => set((state) => ({
+    openSection: state.openSection === section ? null : section
+  }))
 }));
