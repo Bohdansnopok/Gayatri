@@ -160,11 +160,14 @@ export default function AdminForm({ category }: Props) {
       </div>
 
       <div className="form__group">
-        <textarea
+        <input
+          type="text"
           className="form__input"
-          placeholder="опис"
+          placeholder="підзаголовок"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          min="0"
+          step="1"
           disabled={loading}
         />
       </div>

@@ -61,6 +61,19 @@
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+    background: #fff; /* Додано для фону картки */
+    border-radius: 24px;
+    overflow: hidden;
+
+    /* ВИПРАВЛЕНИЙ СЕЛЕКТОР ДЛЯ КАРТИНКИ */
+    img {
+      width: 100%;
+      height: 369px; 
+      border-radius: 24px 24px 0 0;
+      object-fit: cover; /* Запобігає розтягуванню */
+      object-position: center;
+      display: block;
+    }
 
     h3 {
       font-weight: 500;
@@ -90,6 +103,8 @@
       color: #f6339a;
       border: 1px solid #f6339a;
       cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 20px;
       transition: 0.3s transform;
     }
 
@@ -99,7 +114,6 @@
   }
 
   .products-accrodion__item__content__card__info {
-    position: absolute;
     background-color: #fff;
     width: 100%;
     padding: 48px 24px 24px 24px;
@@ -114,10 +128,14 @@
 
     .products-accrodion__item__content__card {
       width: 100%;
+      height: auto; /* Дозволяємо висоті адаптуватися */
       border-radius: 24px;
+      
       img {
         width: 100%;
-      border-radius: 24px;
+        height: 250px; /* Трохи менша висота для планшетів */
+        border-radius: 24px 24px 0 0;
+        object-fit: cover;
       }
     }
   }
@@ -131,6 +149,10 @@
 
     h2 {
       font-size: 24px;
+    }
+
+    .products-accrodion__item__content__card img {
+        height: 200px; /* Висота для мобільних */
     }
   }
 }

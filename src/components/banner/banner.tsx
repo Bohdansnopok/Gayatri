@@ -5,13 +5,15 @@ import Image from "next/image";
 import "./banner.css";
 
 // Імпортуємо картинки (або використовуй шляхи рядками)
-import slide1 from "../../../public/swiper-slide1.jpg";
-import slide2 from "../../../public/swiper-slide-2.jpg";
+import slide1 from "../../../public/swiper-slide-2.jpg";
+import slide2 from '../../../public/slide-3.jpeg';
+import slide3 from "../../../public/swiper-slide1.jpg";
+
 
 const slides = [
   { id: 1, src: slide1, alt: "Косметика 1" },
   { id: 2, src: slide2, alt: "Косметика 2" },
-  { id: 3, src: slide1, alt: "Косметика 3" },
+  { id: 3, src: slide3, alt: "Косметика 3" },
 ];
 
 export default function Banner() {
@@ -51,7 +53,6 @@ export default function Banner() {
         </div>
 
         <div className="slider">
-          {/* Обгортка тільки для фото */}
           <div className="slider__wrapper">
             {slides.map((slide, index) => (
               <div

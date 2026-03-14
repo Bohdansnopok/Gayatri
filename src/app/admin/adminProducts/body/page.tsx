@@ -54,16 +54,9 @@ export default function AdminBody() {
                 {bodyProducts.mililitres} Мл
               </div>
 
-              {/* <div className="admin__edit__card__description">
+              <div className="admin__edit__card__description">
                 {bodyProducts.description}
-              </div> */}
-
-              <button
-                className="face__detailsButton"
-                onClick={() => setSelectedProduct(bodyProducts)}
-              >
-                Детальніше
-              </button>
+              </div>
 
               <div className="admin__edit__card__price">
                 {bodyProducts.price}

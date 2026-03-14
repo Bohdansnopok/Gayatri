@@ -54,15 +54,9 @@ export default function AdminOils() {
               <div className="admin__edit__card__mililitres">
                 {oilsProducts.mililitres} Мл
               </div>
-              {/* <div className="admin__edit__card__description">
+              <div className="admin__edit__card__description">
                 {oilsProducts.description}
-              </div> */}
-              <button
-                className="face__detailsButton"
-                onClick={() => setSelectedProduct(oilsProducts)}
-              >
-                Детальніше
-              </button>
+              </div>
 
               <div className="admin__edit__card__price">
                 {oilsProducts.price}

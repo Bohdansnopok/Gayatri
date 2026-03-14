@@ -55,16 +55,9 @@ export default function AdminEdit() {
                 {faceProducts.mililitres} Мл
               </div>
 
-              {/* <div className="admin__edit__card__description">
+              <div className="admin__edit__card__description">
                 {faceProducts.description}
-              </div> */}
-
-              <button
-                className="face__detailsButton"
-                onClick={() => setSelectedProduct(faceProducts)}
-              >
-                Детальніше
-              </button>
+              </div>
 
               <div className="admin__edit__card__price">
                 {faceProducts.price}

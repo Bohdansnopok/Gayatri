@@ -56,10 +56,10 @@ export default function ProductAccordion() {
             <div className="products-accrodion__item__content active">
               {oilsProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
-                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
                       <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
@@ -95,10 +95,10 @@ export default function ProductAccordion() {
             <div className="products-accrodion__item__content active">
               {faceProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <img src={product.image} alt={product.name}/>
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
-                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
                       <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
@@ -134,10 +134,10 @@ export default function ProductAccordion() {
             <div className="products-accrodion__item__content active">
               {bodyProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
-                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
                       <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
@@ -173,10 +173,10 @@ export default function ProductAccordion() {
             <div className="products-accrodion__item__content active">
               {hairProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
-                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
                       <button className="addToCart defaultButton" onClick={() => addToCart(product)}>
@@ -212,10 +212,10 @@ export default function ProductAccordion() {
             <div className="products-accrodion__item__content active">
               {decorProducts.map((product) => (
                 <div key={product.id} className="products-accrodion__item__content__card">
-                  <img src={product.image} alt={product.name} width={443} height={567}/>
+                  <img src={product.image} alt={product.name} />
                   <div className="products-accrodion__item__content__card__info">
                     <h3>{product.name}</h3>
-                    <div className="subtitle">Природна сила ароматів</div>
+                    <div className="subtitle">{product.description}</div>
                     <div className="flex-wrapp">
                       <div className="price">{product.price}</div>
                       <button className="addToCart defaultButton" onClick={() => addToCart(product)}>

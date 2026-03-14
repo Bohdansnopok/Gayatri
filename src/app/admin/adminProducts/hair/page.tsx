@@ -54,16 +54,10 @@ export default function AdminHair() {
                 {hairProducts.mililitres} Мл
               </div>
 
-              {/* <div className="admin__edit__card__description">
+              <div className="admin__edit__card__description">
                 {hairProducts.description}
-              </div> */}
+              </div>
 
-              <button
-                className="face__detailsButton"
-                onClick={() => setSelectedProduct(hairProducts)}
-              >
-                Детальніше
-              </button>
 
               <div className="admin__edit__card__price">
                 {hairProducts.price}
