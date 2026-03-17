@@ -87,3 +87,23 @@
 .ourProducts__cards__card:nth-child(5) {
   background-image: url(../../../public/decoration-card-bg.jpg);
 }
+
+@media (max-width: 1150px) {
+  .ourProducts {
+    overflow: hidden;
+  }
+
+  .ourProducts__cards {
+    width: 100vw;
+    margin-top: 32px;
+    margin-left: calc(50% - 50vw);
+    padding: 0 16px 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ourProducts__cards__card {
+    flex: 0 0 256px;
+  }
+}
