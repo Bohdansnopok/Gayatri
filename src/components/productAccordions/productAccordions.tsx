@@ -124,7 +124,7 @@ export default function ProductAccordion() {
                 <Image src={magicIcon} alt="Magic Icon" />
               </div>
               <h2>
-                <strong>Догляд за обличчям</strong>
+                <strong>Догляд та краса</strong>
               </h2>
             </div>
             <Image
@@ -178,7 +178,7 @@ export default function ProductAccordion() {
                 <Image src={heartIcon} alt="Magic Icon" />
               </div>
               <h2>
-                <strong>Догляд за тілом</strong>
+                <strong>Персональний супровід</strong>
               </h2>
             </div>
             <Image
@@ -232,7 +232,7 @@ export default function ProductAccordion() {
                 <Image src={wavesIcon} alt="Magic Icon" />
               </div>
               <h2>
-                <strong>Догляд за волоссям</strong>
+                <strong>Інструменти трансформації</strong>
               </h2>
             </div>
             <Image
@@ -286,7 +286,7 @@ export default function ProductAccordion() {
                 <Image src={paintsIcon} alt="Magic Icon" />
               </div>
               <h2>
-                <strong>Декоративна косметика</strong>
+                <strong>Подарункові пропозиції</strong>
               </h2>
             </div>
             <Image

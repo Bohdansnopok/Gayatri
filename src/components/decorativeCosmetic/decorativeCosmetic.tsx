@@ -19,7 +19,7 @@ export default function DecorativeCosmetic() {
   return (
     <section id="decorative" className="face">
       <div className="container">
-        <h1>Декоративна косметика</h1>
+        <h1>Подарункові пропозиції</h1>
         <div className="face__cards">
           {decorProducts.map((product, index) => (
             <div key={product.id} className="face__card">

@@ -17,16 +17,16 @@ useAuth();
         Ефірні олії
       </Link>
       <Link className="admin__sidebar__link" href="/admin/adminProducts/face">
-        Догляд за обличчям
+        Догляд та краса
       </Link>
       <Link className="admin__sidebar__link" href="/admin/adminProducts/body">
-        Догляд за тілом
+        Персональний супровід
       </Link>
       <Link className="admin__sidebar__link" href="/admin/adminProducts/hair">
-        Догляд за волоссям
+        Інструменти трансформації
       </Link>
       <Link className="admin__sidebar__link" href="/admin/adminProducts/decor">
-        Декоративна косметика
+        Подарункові пропозиції
       </Link>
     </div>
   );

@@ -50,9 +50,7 @@ export default function OurProducts() {
               <Image src={magicIcon} alt="" />
             </div>
             <div>
-              <h3>
-                Догляд за <br /> обличчям
-              </h3>
+              <h3>Догляд та краса</h3>
               <div className="ourProducts__cards__card__subtitle">
                 Сяюча і здорова шкіра
               </div>
@@ -67,7 +65,7 @@ export default function OurProducts() {
               <Image src={heartIcon} alt="" />
             </div>
             <div>
-              <h3>Догляд за тілом</h3>
+              <h3>Персональний супровід</h3>
               <div className="ourProducts__cards__card__subtitle">
                 М'якість і ніжність
               </div>
@@ -82,9 +80,7 @@ export default function OurProducts() {
               <Image src={wavesIcon} alt="" />
             </div>
             <div>
-              <h3>
-                Догляд за <br /> волоссям
-              </h3>
+              <h3>Інструменти трансформації</h3>
               <div className="ourProducts__cards__card__subtitle">
                 Сила та блиск
               </div>
@@ -99,9 +95,7 @@ export default function OurProducts() {
               <Image src={paintsIcon} alt="" />
             </div>
             <div>
-              <h3>
-                Декоративна <br /> косметика
-              </h3>
+              <h3>Подарункові пропозиції</h3>
               <div className="ourProducts__cards__card__subtitle">
                 Виразіть себе
               </div>

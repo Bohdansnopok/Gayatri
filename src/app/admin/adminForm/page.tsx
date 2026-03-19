@@ -9,6 +9,14 @@ type Props = {
   category: "FACE" | "BODY" | "HAIR" | "DECOR" | "OILS";
 };
 
+const categoryLabels = {
+  FACE: "Догляд та краса",
+  BODY: "Персональний супровід",
+  HAIR: "Інструменти трансформації",
+  DECOR: "Подарункові пропозиції",
+  OILS: "Ефірні олії",
+} as const;
+
 export default function AdminForm({ category }: Props) {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [name, setName] = useState("");
@@ -81,7 +89,7 @@ export default function AdminForm({ category }: Props) {
       ) as HTMLInputElement;
       if (fileInput) fileInput.value = "";
 
-      alert(`✅ Товар додано до ${category}!`);
+      alert(`✅ Товар додано до ${categoryLabels[category]}!`);
     } catch (error: any) {
       console.error(`Помилка:`, error);
       alert(`❌ ${error.message || "Помилка"}`);
@@ -94,7 +102,7 @@ export default function AdminForm({ category }: Props) {
 
   return (
     <form className="admin__form" onSubmit={handleSubmit}>
-      <h3 className="form__title">Gayatri shop:{category}</h3>
+      <h3 className="form__title">Gayatri shop: {categoryLabels[category]}</h3>
 
       <div className="form__group">
         <input

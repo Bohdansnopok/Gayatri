@@ -18,7 +18,7 @@ export default function DecorativeCosmetic() {
   return (
     <section id="skin" className="face">
       <div className="container">
-        <h1>Догляд за тілом</h1>
+        <h1>Персональний супровід</h1>
         <div className="face__cards">
           {bodyProducts.map((product, index) => (
             <div key={product.id} className="face__card">
