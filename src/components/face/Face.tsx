@@ -5,6 +5,7 @@ import { useCartStore } from "@/store/cartStore";
 import { useProductStore } from "@/store/productStore";
 import { useEffect, useState } from "react";
 import CartDescriptionModal from "../cartDescriptionModal/cartDescriptionModal";
+import { normalizeImageSrc } from "@/lib/image";
 
 export default function DecorativeCosmetic() {
   const addToCart = useCartStore((state) => state.addToCart);
@@ -25,7 +26,7 @@ export default function DecorativeCosmetic() {
               <section>
                 <div className="face__card__image-container">
                   <img
-                    src={product.image}
+                    src={normalizeImageSrc(product.image)}
                     alt={product.name || ""}
                     className="face__card__image"
                     width={300}

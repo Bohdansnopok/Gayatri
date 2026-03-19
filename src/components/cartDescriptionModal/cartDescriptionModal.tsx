@@ -1,6 +1,7 @@
 import { Product } from "@/store/cartStore";
 import "./cartDescriptionModal.css";
 import { FaTimes } from "react-icons/fa";
+import { normalizeImageSrc } from "@/lib/image";
 
 type ModalProps = {
   product: any;
@@ -21,7 +22,7 @@ export default function CartDescriptionModal({ product, onClose }: ModalProps) {
         </button>
         <div className="CartDescriptionModal__content__wrap">
           <img
-            src={product.image}
+            src={normalizeImageSrc(product.image)}
             alt={product.name}
             className="CartDescriptionModal__content__image"
           />
