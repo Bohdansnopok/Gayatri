@@ -151,7 +151,7 @@
     }
 
     .products-accrodion__item__content__card img {
-        height: 200px; /* Висота для мобільних */
+        height: 200px;
     }
   }
 }
