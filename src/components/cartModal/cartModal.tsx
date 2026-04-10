@@ -406,7 +406,9 @@ export default function CartModal() {
           | { success: false; error?: string };
 
         if (!response.ok || !payload.success) {
-          throw new Error(payload.error || "Не вдалося знайти місто");
+          throw new Error(
+            (!payload.success && payload.error) || "Не вдалося знайти місто"
+          );
         }
 
         setCityOptions(payload.items);
@@ -465,7 +467,9 @@ export default function CartModal() {
           | { success: false; error?: string };
 
         if (!response.ok || !payload.success) {
-          throw new Error(payload.error || "Не вдалося знайти відділення");
+          throw new Error(
+            (!payload.success && payload.error) || "Не вдалося знайти відділення"
+          );
         }
 
         setWarehouseOptions(payload.items);
